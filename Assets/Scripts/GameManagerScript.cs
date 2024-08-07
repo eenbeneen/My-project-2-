@@ -1,0 +1,151 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class GameManagerScript : MonoBehaviour
+{
+
+    public static GameManagerScript Instance { get; private set; }
+
+    public event EventHandler OnPlayerTurnStart;
+    public event EventHandler OnEnemyTurnStart;
+    public event EventHandler OnMatchStart;
+
+    public int secondsPerTurn = 120;
+
+    private int secondsLeftThisTurn;
+
+    public bool isPlayerTurn;
+    public bool isEnemyTurn;
+
+    private float startTimer = 1f;
+    private bool gameStarted;
+
+    [SerializeField] private GameObject winScreenUI;
+    [SerializeField] private GameObject lossScreenUI;
+
+
+    private void Awake()
+    {
+        Instance = this;
+
+        winScreenUI.SetActive(false);
+        lossScreenUI.SetActive(false);
+        
+    }
+
+    private void Start()
+    {
+        PlayerDeckManagerScript.Instance.OnJokePlayed += PlayerDeckManagerScript_OnJokePlayed;
+        EnemyDeckManagerScript.Instance.OnEnemyJokePlayed += EnemyDeckManagerScript_OnEnemyJokePlayed;
+
+        AudienceScript.Instance.OnMeterFull += AudienceScript_OnMeterFull;
+        AudienceScript.Instance.OnMeterEmpty += AudienceScript_OnMeterEmpty;
+    }
+
+    private void AudienceScript_OnMeterEmpty(object sender, EventArgs e)
+    {
+        PlayerLoss();
+    }
+
+    private void AudienceScript_OnMeterFull(object sender, EventArgs e)
+    {
+        PlayerWin();
+    }
+
+    private void EnemyDeckManagerScript_OnEnemyJokePlayed(object sender, EnemyDeckManagerScript.OnEnemyJokePlayedEventArgs e)
+    {
+        if (isEnemyTurn)
+        {
+            int secondsUsed = e.jokeSO.secondsToTell + UnityEngine.Random.Range(-e.jokeSO.secondsToTellVariance, e.jokeSO.secondsToTellVariance);
+            secondsLeftThisTurn -= secondsUsed;
+            //jokesPlayedThisMatch.Add(e.jokeSO);
+
+            if (secondsLeftThisTurn < 0)
+            {
+                StartPlayerTurn();
+            }
+            else
+            {
+                TurnUIScript.Instance.UpdateSecondsText(secondsLeftThisTurn, false);
+            }
+        }
+    }
+
+    private void PlayerDeckManagerScript_OnJokePlayed(object sender, PlayerDeckManagerScript.OnJokePlayedEventArgs e)
+    {
+        if (isPlayerTurn)
+        {
+            int secondsUsed = e.jokeSO.secondsToTell + UnityEngine.Random.Range(-e.jokeSO.secondsToTellVariance, e.jokeSO.secondsToTellVariance);
+            secondsLeftThisTurn -= secondsUsed;
+            //jokesPlayedThisMatch.Add(e.jokeSO);
+
+            if (secondsLeftThisTurn < 0)
+            {
+                StartEnemyTurn();
+            }
+            else
+            {
+                TurnUIScript.Instance.UpdateSecondsText(secondsLeftThisTurn , true);
+            }
+        }
+    }
+
+    private void Update()
+    {
+        if (!gameStarted && startTimer > 0)
+        {
+            startTimer -= Time.deltaTime;
+
+        }
+        else if (!gameStarted)
+        {
+            gameStarted = true;
+            StartMatch();
+        }
+    }
+
+    private void StartMatch()
+    {
+        OnMatchStart?.Invoke(this, EventArgs.Empty);
+        StartPlayerTurn();
+    }
+
+    private void StartPlayerTurn()
+    {
+        isPlayerTurn = true;
+        isEnemyTurn = false;
+        secondsLeftThisTurn = secondsPerTurn;
+        OnPlayerTurnStart?.Invoke(this, EventArgs.Empty);
+    }
+
+    private void StartEnemyTurn()
+    {
+        isPlayerTurn = false;
+        isEnemyTurn = true;
+        secondsLeftThisTurn = secondsPerTurn;
+        OnEnemyTurnStart?.Invoke(this, EventArgs.Empty);
+    }
+
+    public int GetSecondsLeft()
+    {
+        return secondsLeftThisTurn ;
+    }
+
+
+    private void PlayerWin()
+    {
+        winScreenUI.SetActive(true);
+        isPlayerTurn = false;
+        isEnemyTurn = false;
+    }
+
+    private void PlayerLoss()
+    {
+        lossScreenUI.SetActive(true);
+        isPlayerTurn = false;
+        isEnemyTurn = false;
+    }
+
+}
