@@ -5,35 +5,33 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class JokeUIScript : MonoBehaviour
 {
-
-    private const string JOKE_PLAYED = "JokePlayed";
-    private const string JOKE_SELECTED = "JokeSelected";
-
-
+    
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private TextMeshProUGUI typeText;
     [SerializeField] private TextMeshProUGUI funninessScoreText;
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private Transform playedJokeUI;
+    [SerializeField] private Button buttonComponent;
+    [SerializeField] private JokeUIAnimatorScript jokeUIAnimator;
 
     private JokeSOScript jokeSO;
-    private Animator animator;
-    private Button buttonComponent;
+    
+    
     private bool buttonActive = true;
 
+    
 
     private void Awake()
     {
-        animator = GetComponent<Animator>();
 
         //If this object's parent is the PlayedJokeUI object, play the animation to play the joke
         if (transform.parent == playedJokeUI )
         {
 
             buttonActive = false;
-            animator.SetTrigger(JOKE_PLAYED);
+            jokeUIAnimator.PlayJokePlayedAnimation();
             
         }
 
@@ -42,7 +40,7 @@ public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     private void Start()
     {
-        buttonComponent = transform.GetComponent<Button>();
+        
         buttonComponent.onClick.AddListener(delegate { PlayerDeckManagerScript.Instance.StartPlayingJoke(jokeSO);  PlayJokeUI(); });
 
         GameManagerScript.Instance.OnPlayerTurnStart += GameManagerScript_OnPlayerTurnStart;
@@ -71,6 +69,12 @@ public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         {
             buttonComponent.enabled = false;
         }
+
+        
+
+        
+        
+
     }
 
 
@@ -88,19 +92,7 @@ public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     }
 
 
-    public void OnPointerEnter(PointerEventData pointerEventData)
-    {
-        if (buttonActive)
-        {
-            animator.SetBool(JOKE_SELECTED, true);
-        }
-        
-    }
-
-    public void OnPointerExit(PointerEventData pointerEventData)
-    {
-        animator.SetBool(JOKE_SELECTED, false);
-    }
+    
 
 
     public void PlayJokeUI()
@@ -122,5 +114,10 @@ public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         buttonActive = value;
     }
+
+
+
+    
+
 
 }
