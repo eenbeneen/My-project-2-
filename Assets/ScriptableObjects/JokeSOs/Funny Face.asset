@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Funny Face
   m_EditorClassIdentifier: 
   description: '":p"'
-  baseLaughs: 5
+  baseLaughs: 10
   type: 1
-  moodChange: 0.2
-  timeToTell: 0.5
-  timeToTellVariance: 0.5
+  moodChange: 20
+  secondsToTell: 60
+  secondsToTellVariance: 5

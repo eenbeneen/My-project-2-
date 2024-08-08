@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Political Joke
   m_EditorClassIdentifier: 
   description: '"Not that Steve Stevenson knows what a law is"'
-  baseLaughs: 5
+  baseLaughs: 10
   type: 5
-  moodChange: 0.2
-  timeToTell: 0.5
-  timeToTellVariance: 0.5
+  moodChange: 20
+  secondsToTell: 60
+  secondsToTellVariance: 5

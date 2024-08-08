@@ -15,6 +15,6 @@ MonoBehaviour:
   description: N/A
   baseLaughs: 5
   type: 6
-  moodChange: 0.2
-  timeToTell: 0.5
-  timeToTellVariance: 0.5
+  moodChange: 20
+  secondsToTell: 60
+  secondsToTellVariance: 5

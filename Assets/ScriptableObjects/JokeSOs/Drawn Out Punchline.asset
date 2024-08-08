@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: '"So theres this man who works at a place and has a boss who ... and
     then the President says ''They got my pants!''"'
-  baseLaughs: 5
+  baseLaughs: 14
   type: 7
-  moodChange: 0.2
-  timeToTell: 0.5
-  timeToTellVariance: 0.5
+  moodChange: 20
+  secondsToTell: 60
+  secondsToTellVariance: 5

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Pun
   m_EditorClassIdentifier: 
   description: '"This cat toy is just purr-fect"'
-  baseLaughs: 5
+  baseLaughs: 9
   type: 2
-  moodChange: 0.2
-  timeToTell: 0.5
-  timeToTellVariance: 0.5
+  moodChange: 20
+  secondsToTell: 60
+  secondsToTellVariance: 5
