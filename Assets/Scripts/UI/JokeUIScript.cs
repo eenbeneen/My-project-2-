@@ -1,13 +1,25 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class JokeUIScript : MonoBehaviour
+public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    
+
+
+    public static event EventHandler<OnJokeSelectedEventArgs> OnJokeSelected;
+    public static event EventHandler OnJokeUnselected;
+    public class OnJokeSelectedEventArgs : EventArgs
+    {
+        public JokeSOScript jokeSO;
+    }
+
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private TextMeshProUGUI typeText;
     [SerializeField] private TextMeshProUGUI funninessScoreText;
@@ -30,9 +42,13 @@ public class JokeUIScript : MonoBehaviour
         if (transform.parent == playedJokeUI )
         {
 
-            buttonActive = false;
+            SetButtonActive(false);
             jokeUIAnimator.PlayJokePlayedAnimation();
             
+        }
+        else
+        {
+            SetButtonActive(true);
         }
 
         
@@ -51,12 +67,12 @@ public class JokeUIScript : MonoBehaviour
 
     private void GameManagerScript_OnEnemyTurnStart(object sender, System.EventArgs e)
     {
-        buttonActive = false;
+        SetButtonActive(false);
     }
 
     private void GameManagerScript_OnPlayerTurnStart(object sender, System.EventArgs e)
     {
-        buttonActive = true;
+        SetButtonActive(true);
     }
 
     private void Update()
@@ -69,12 +85,6 @@ public class JokeUIScript : MonoBehaviour
         {
             buttonComponent.enabled = false;
         }
-
-        
-
-        
-        
-
     }
 
 
@@ -98,14 +108,13 @@ public class JokeUIScript : MonoBehaviour
     public void PlayJokeUI()
     {
         HandUIScript.Instance.jokeUIList.Remove(this);
-        transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
         Instantiate(this, playedJokeUI);
         DestroySelf();
     }
 
     public void DestroySelf() 
     {
-        
+        HandUIScript.Instance.RemoveFromHand(this);
         Destroy(gameObject); 
     }
 
@@ -113,11 +122,31 @@ public class JokeUIScript : MonoBehaviour
     public void SetButtonActive(bool value)
     {
         buttonActive = value;
+        jokeUIAnimator.ActiveAnimationsEnabled(value);
     }
 
+    public void MoveTo(Vector3 position)
+    {
+        jokeUIAnimator.AnimateMoveTo(position);
+    }
 
+    public void OnPointerEnter(PointerEventData pointerEventData)
+    {
+        transform.SetAsLastSibling();
+        if (buttonActive)
+        {
+            OnJokeSelected?.Invoke(this, new OnJokeSelectedEventArgs
+            {
+                jokeSO = jokeSO
+            });
+        }
+        
+        
+    }
 
-    
-
+    public void OnPointerExit(PointerEventData pointerEventData)
+    {
+        OnJokeUnselected?.Invoke(this, EventArgs.Empty);
+    }
 
 }

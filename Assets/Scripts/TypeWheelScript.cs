@@ -12,11 +12,12 @@ public class TypeWheelScript : MonoBehaviour
 
     private const int NUMTYPES = 8;
 
-    [SerializeField] private int[] moodValueArray = new int[NUMTYPES];
+    [SerializeField] private int[] currentMoodValueArray = new int[NUMTYPES];
     [SerializeField] private JokeSOScript.JokeType[] jokeTypeArray = new JokeSOScript.JokeType[NUMTYPES];
     [SerializeField] private Vector2[] jokeTypePositionsOnCircleArray = new Vector2[NUMTYPES];
-    [SerializeField] private Image typeWheelUI;
-    [SerializeField] private Image typeWheelIndicatorUI;
+    [SerializeField] private Image typeWheelImage;
+    [SerializeField] private Image typeWheelIndicatorImage;
+    [SerializeField] private Image typeWheelIndicatorPreviewImage;
 
 
     private void Awake()
@@ -28,9 +29,10 @@ public class TypeWheelScript : MonoBehaviour
     {
         PlayerDeckManagerScript.Instance.OnJokePlayed += PlayerDeckManagerScript_OnJokePlayed;
         EnemyDeckManagerScript.Instance.OnEnemyJokePlayed += EnemyDeckManagerScript_OnEnemyJokePlayed;
+        JokeUIScript.OnJokeSelected += JokeUIScript_OnJokeSelected;
+        JokeUIScript.OnJokeUnselected += JokeUIScript_OnJokeUnselected;
 
-
-        int radius = (int)typeWheelUI.GetComponent<RectTransform>().rect.width; ;
+        int radius = (int)typeWheelImage.GetComponent<RectTransform>().rect.width; ;
         float angle = (67.5f * Mathf.PI) / 180;
         for (int i = 0; i < NUMTYPES; i++)
         {
@@ -41,25 +43,39 @@ public class TypeWheelScript : MonoBehaviour
 
     }
 
+    private void JokeUIScript_OnJokeUnselected(object sender, System.EventArgs e)
+    {
+        typeWheelIndicatorPreviewImage.gameObject.SetActive(false);
+    }
+
+    private void JokeUIScript_OnJokeSelected(object sender, JokeUIScript.OnJokeSelectedEventArgs e)
+    {
+        int[] moodValueArrayPreview= new int[NUMTYPES];
+        currentMoodValueArray.CopyTo(moodValueArrayPreview, 0);
+        moodValueArrayPreview = AddMoodToType(e.jokeSO, moodValueArrayPreview);
+        typeWheelIndicatorPreviewImage.transform.localPosition = GetNewIndicatorPosition(moodValueArrayPreview);
+        typeWheelIndicatorPreviewImage.gameObject.SetActive(true);
+
+    }
+
     private void EnemyDeckManagerScript_OnEnemyJokePlayed(object sender, EnemyDeckManagerScript.OnEnemyJokePlayedEventArgs e)
     {
-        AddMoodToType(e.jokeSO);
+        currentMoodValueArray = AddMoodToType(e.jokeSO, currentMoodValueArray);
     }
 
     private void PlayerDeckManagerScript_OnJokePlayed(object sender, PlayerDeckManagerScript.OnJokePlayedEventArgs e)
     {
-        AddMoodToType(e.jokeSO);
+        currentMoodValueArray = AddMoodToType(e.jokeSO, currentMoodValueArray);
     }
 
     private void Update()
     {
-        typeWheelIndicatorUI.transform.localPosition = GetNewIndicatorPosition();
-
-        GetJokeTypeMood();
+        typeWheelIndicatorImage.transform.localPosition = GetNewIndicatorPosition(currentMoodValueArray);
+        
     }
 
 
-    private Vector2 GetNewIndicatorPosition()
+    private Vector2 GetNewIndicatorPosition(int[] moodValueArray)
     {
         Vector2 position = Vector2.zero;
         
@@ -73,7 +89,7 @@ public class TypeWheelScript : MonoBehaviour
 
     }
 
-    public void AddMoodToType(int numToAdd, JokeSOScript.JokeType type)
+    public int[] AddMoodToType(int numToAdd, JokeSOScript.JokeType type, int[] moodValueArray)
     {
         for (int i = 0; i < NUMTYPES; i++)
         {
@@ -101,11 +117,13 @@ public class TypeWheelScript : MonoBehaviour
                 
             }
         }
+
+        return moodValueArray;
     }
 
-    public void AddMoodToType(JokeSOScript jokeSO)
+    public int[] AddMoodToType(JokeSOScript jokeSO, int[] moodValueArray)
     {
-        AddMoodToType(jokeSO.moodChange, jokeSO.type);
+        return AddMoodToType(jokeSO.moodChange, jokeSO.type, moodValueArray);
     }
 
     public float GetMultiplierForType(JokeSOScript.JokeType jokeType) 
@@ -113,9 +131,11 @@ public class TypeWheelScript : MonoBehaviour
         int mainJokeTypeIndex = ArrayUtility.IndexOf(jokeTypeArray, GetJokeTypeMood());
         int jokeTypeIndex = ArrayUtility.IndexOf(jokeTypeArray, jokeType);
 
-        if (jokeTypeIndex == -1)
+        if (mainJokeTypeIndex == -1)
         {
+            
             return 1;
+            
         }
 
         int distanceBetweenIndexes = Mathf.Abs(mainJokeTypeIndex - jokeTypeIndex);
@@ -137,23 +157,21 @@ public class TypeWheelScript : MonoBehaviour
 
         }
 
-
-        
-        
-
     }
 
     private JokeSOScript.JokeType GetJokeTypeMood()
     {
         
 
-        Vector2 indicatorVector2 = typeWheelIndicatorUI.transform.localPosition;
+        Vector2 indicatorVector2 = typeWheelIndicatorImage.transform.localPosition;
 
         //if the indicator is too close to the middle, return a mood of Normal
         float margin = 5f;
         if (indicatorVector2.magnitude < margin)
         {
+            Debug.Log("Type is normal");
             return JokeSOScript.JokeType.Normal;
+            
         }
 
         float indicatorAngle = Vector2.SignedAngle(Vector2.up, indicatorVector2);

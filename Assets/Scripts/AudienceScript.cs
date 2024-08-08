@@ -23,6 +23,11 @@ public class AudienceScript : MonoBehaviour
         Instance = this;
     }
 
+    private void Start()
+    {
+        
+    }
+
     public void ChangeLaughsForPlayerWithJoke(JokeSOScript jokeSO, bool isPositiveChange)
     {
         int changeSign = -1;
