@@ -15,7 +15,11 @@ MonoBehaviour:
   description: '"So theres this man who works at a place and has a boss who ... and
     then the President says ''They got my pants!''"'
   baseLaughs: 14
+  baseType: 7
+  baseMoodChange: 20
+  baseSecondsToTell: 60
+  laughs: 14
   type: 7
   moodChange: 20
   secondsToTell: 60
-  secondsToTellVariance: 5
+  isPlayerJoke: 1

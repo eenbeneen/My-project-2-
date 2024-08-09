@@ -22,11 +22,14 @@ public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private TextMeshProUGUI typeText;
-    [SerializeField] private TextMeshProUGUI funninessScoreText;
+    [SerializeField] private TextMeshProUGUI laughsScoreText;
     [SerializeField] private TextMeshProUGUI descriptionText;
+    [SerializeField] private TextMeshProUGUI timeToTellText;
+    [SerializeField] private TextMeshProUGUI moodChangeText;
     [SerializeField] private Transform playedJokeUI;
     [SerializeField] private Button buttonComponent;
     [SerializeField] private JokeUIAnimatorScript jokeUIAnimator;
+    
 
     private JokeSOScript jokeSO;
     
@@ -37,6 +40,7 @@ public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     private void Awake()
     {
+        
 
         //If this object's parent is the PlayedJokeUI object, play the animation to play the joke
         if (transform.parent == playedJokeUI )
@@ -56,13 +60,11 @@ public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     private void Start()
     {
-        
         buttonComponent.onClick.AddListener(delegate { PlayerDeckManagerScript.Instance.StartPlayingJoke(jokeSO);  PlayJokeUI(); });
 
         GameManagerScript.Instance.OnPlayerTurnStart += GameManagerScript_OnPlayerTurnStart;
         GameManagerScript.Instance.OnEnemyTurnStart += GameManagerScript_OnEnemyTurnStart;
 
-        
     }
 
     private void GameManagerScript_OnEnemyTurnStart(object sender, System.EventArgs e)
@@ -88,17 +90,20 @@ public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     }
 
 
-    public void SetJokeSO(JokeSOScript jokeSO)
+    public void SetJokeSO(JokeSOScript jokeSO, bool sentByPlayer)
     {
         this.jokeSO = jokeSO;
+        jokeSO.InitializeVariables(sentByPlayer);
     }
 
     public void UpdateVisual()
     {
         nameText.text = jokeSO.name;
         typeText.text = jokeSO.type.ToString() + " Joke";
-        funninessScoreText.text = jokeSO.baseLaughs.ToString();
+        laughsScoreText.text = jokeSO.laughs.ToString();
         descriptionText.text = jokeSO.description;
+        timeToTellText.text = jokeSO.secondsToTell.ToString();
+        moodChangeText.text = jokeSO.moodChange.ToString();
     }
 
 
@@ -107,7 +112,9 @@ public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void PlayJokeUI()
     {
+        UpdateVisual();
         HandUIScript.Instance.jokeUIList.Remove(this);
+        OnJokeUnselected?.Invoke(this, EventArgs.Empty);
         Instantiate(this, playedJokeUI);
         DestroySelf();
     }

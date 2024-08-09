@@ -107,7 +107,10 @@ public class EnemyDeckManagerScript : MonoBehaviour
 
     private IEnumerator PlayJoke(JokeSOScript jokeSO)
     {
+        
         EnemyUIScript.Instance.PlayJokeAnimation(jokeSO);
+
+        jokeSO.OnPlay();
 
         float delayFromAnimation = 2f;
 

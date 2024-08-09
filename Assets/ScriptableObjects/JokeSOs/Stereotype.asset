@@ -14,7 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: N/A
   baseLaughs: 12
+  baseType: 5
+  baseMoodChange: 40
+  baseSecondsToTell: 30
+  laughs: 12
   type: 5
-  moodChange: 20
-  secondsToTell: 60
-  secondsToTellVariance: 5
+  moodChange: 40
+  secondsToTell: 30
+  isPlayerJoke: 0

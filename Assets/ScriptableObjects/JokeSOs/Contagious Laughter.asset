@@ -9,12 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87731e1c80808814b85a1270fabbf087, type: 3}
+  m_Script: {fileID: 11500000, guid: 3aad637808011e84a9530ee6b2acb7cf, type: 3}
   m_Name: Contagious Laughter
   m_EditorClassIdentifier: 
-  description: '"*horse sounds*"'
+  description: Give the audience 3 cases of The Giggles
   baseLaughs: 11
-  type: 1
+  baseType: 0
+  baseMoodChange: 20
+  baseSecondsToTell: 10
+  laughs: 11
+  type: 0
   moodChange: 20
-  secondsToTell: 60
-  secondsToTellVariance: 5
+  secondsToTell: 10
+  isPlayerJoke: 1

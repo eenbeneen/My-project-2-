@@ -25,6 +25,8 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField] private GameObject winScreenUI;
     [SerializeField] private GameObject lossScreenUI;
 
+    public List<JokeSOScript> jokesPlayed = new List<JokeSOScript>();
+
 
     private void Awake()
     {
@@ -58,7 +60,7 @@ public class GameManagerScript : MonoBehaviour
     {
         if (isEnemyTurn)
         {
-            int secondsUsed = e.jokeSO.secondsToTell + UnityEngine.Random.Range(-e.jokeSO.secondsToTellVariance, e.jokeSO.secondsToTellVariance);
+            int secondsUsed = e.jokeSO.baseSecondsToTell;
             secondsLeftThisTurn -= secondsUsed;
             //jokesPlayedThisMatch.Add(e.jokeSO);
 
@@ -70,6 +72,8 @@ public class GameManagerScript : MonoBehaviour
             {
                 TurnUIScript.Instance.UpdateSecondsText(secondsLeftThisTurn, false);
             }
+
+            jokesPlayed.Add(e.jokeSO);
         }
     }
 
@@ -77,7 +81,7 @@ public class GameManagerScript : MonoBehaviour
     {
         if (isPlayerTurn)
         {
-            int secondsUsed = e.jokeSO.secondsToTell + UnityEngine.Random.Range(-e.jokeSO.secondsToTellVariance, e.jokeSO.secondsToTellVariance);
+            int secondsUsed = e.jokeSO.baseSecondsToTell;
             secondsLeftThisTurn -= secondsUsed;
             //jokesPlayedThisMatch.Add(e.jokeSO);
 
@@ -89,6 +93,8 @@ public class GameManagerScript : MonoBehaviour
             {
                 TurnUIScript.Instance.UpdateSecondsText(secondsLeftThisTurn , true);
             }
+
+            jokesPlayed.Add(e.jokeSO);
         }
     }
 

@@ -14,7 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: '"Not that Steve Stevenson knows what a law is"'
   baseLaughs: 10
+  baseType: 5
+  baseMoodChange: 30
+  baseSecondsToTell: 30
+  laughs: 10
   type: 5
-  moodChange: 20
-  secondsToTell: 60
-  secondsToTellVariance: 5
+  moodChange: 30
+  secondsToTell: 30
+  isPlayerJoke: 1

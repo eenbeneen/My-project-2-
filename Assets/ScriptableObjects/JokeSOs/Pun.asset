@@ -14,7 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: '"This cat toy is just purr-fect"'
   baseLaughs: 9
+  baseType: 2
+  baseMoodChange: 10
+  baseSecondsToTell: 10
+  laughs: 9
   type: 2
-  moodChange: 20
-  secondsToTell: 60
-  secondsToTellVariance: 5
+  moodChange: 10
+  secondsToTell: 10
+  isPlayerJoke: 1

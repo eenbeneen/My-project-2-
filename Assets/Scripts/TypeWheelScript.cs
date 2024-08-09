@@ -123,7 +123,7 @@ public class TypeWheelScript : MonoBehaviour
 
     public int[] AddMoodToType(JokeSOScript jokeSO, int[] moodValueArray)
     {
-        return AddMoodToType(jokeSO.moodChange, jokeSO.type, moodValueArray);
+        return AddMoodToType(jokeSO.baseMoodChange, jokeSO.baseType, moodValueArray);
     }
 
     public float GetMultiplierForType(JokeSOScript.JokeType jokeType) 

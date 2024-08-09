@@ -9,12 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87731e1c80808814b85a1270fabbf087, type: 3}
+  m_Script: {fileID: 11500000, guid: 41f80ae14e0099d488dda7a06c0d2638, type: 3}
   m_Name: Inside Joke
   m_EditorClassIdentifier: 
-  description: N/A
-  baseLaughs: 8
+  description: Copy the Laughs of a random card played this match
+  baseLaughs: 0
+  baseType: 3
+  baseMoodChange: 20
+  baseSecondsToTell: 20
+  laughs: 0
   type: 3
   moodChange: 20
-  secondsToTell: 60
-  secondsToTellVariance: 5
+  secondsToTell: 20
+  isPlayerJoke: 1

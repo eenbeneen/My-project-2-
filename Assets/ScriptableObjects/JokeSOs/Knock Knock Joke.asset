@@ -14,7 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: '"Knock knock ... Who''s there ... Harch ... Harch who ... Bless you!"'
   baseLaughs: 7
+  baseType: 0
+  baseMoodChange: 0
+  baseSecondsToTell: 30
+  laughs: 7
   type: 0
   moodChange: 0
-  secondsToTell: 60
-  secondsToTellVariance: 5
+  secondsToTell: 30
+  isPlayerJoke: 1

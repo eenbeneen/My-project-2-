@@ -21,7 +21,7 @@ public class EnemyUIScript : MonoBehaviour
     {
         JokeUIScript jokeUI = Instantiate(jokeUITemplate, playedJokeUI);
         jokeUI.gameObject.SetActive(true);
-        jokeUI.SetJokeSO(jokeSO);
+        jokeUI.SetJokeSO(jokeSO, false);
         jokeUI.UpdateVisual();
     }
 }

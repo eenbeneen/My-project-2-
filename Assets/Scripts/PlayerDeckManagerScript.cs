@@ -70,6 +70,7 @@ public class PlayerDeckManagerScript : MonoBehaviour
             if (deck.Count > 0)
             {
                 JokeSOScript jokeSODrawn = deck[0];
+                
                 deck.RemoveAt(0);
                 hand.Add(jokeSODrawn);
 
@@ -92,6 +93,8 @@ public class PlayerDeckManagerScript : MonoBehaviour
 
     private IEnumerator PlayJoke(JokeSOScript jokeSO)
     {
+        jokeSO.OnPlay();
+
         float delayFromAnimation = 2f;
 
         HandUIScript.Instance.SetAllButtonsActive(false);

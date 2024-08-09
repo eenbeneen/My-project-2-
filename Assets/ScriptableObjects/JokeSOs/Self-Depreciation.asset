@@ -14,7 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: '"This game sucks"'
   baseLaughs: 13
+  baseType: 3
+  baseMoodChange: 20
+  baseSecondsToTell: 20
+  laughs: 13
   type: 3
   moodChange: 20
-  secondsToTell: 60
-  secondsToTellVariance: 5
+  secondsToTell: 20
+  isPlayerJoke: 1
