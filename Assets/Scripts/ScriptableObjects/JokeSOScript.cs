@@ -46,12 +46,12 @@ public class JokeSOScript : ScriptableObject
 
     public virtual void OnPlay()
     {
-        Debug.Log("Joke played");
+        
     }
 
     public virtual void OnDraw()
     {
-        Debug.Log("Joke Drawn");
+        
     }
 
 

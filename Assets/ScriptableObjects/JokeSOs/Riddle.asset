@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87731e1c80808814b85a1270fabbf087, type: 3}
   m_Name: Riddle
   m_EditorClassIdentifier: 
-  description: N/A
+  description: 
   baseLaughs: 13
   baseType: 2
   baseMoodChange: 20
@@ -21,4 +21,4 @@ MonoBehaviour:
   type: 2
   moodChange: 20
   secondsToTell: 20
-  isPlayerJoke: 1
+  isPlayerJoke: 0

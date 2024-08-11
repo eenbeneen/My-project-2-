@@ -13,6 +13,7 @@ public class InsideJoke : JokeSOScript
         {
             JokeSOScript jokeToCopy = GameManagerScript.Instance.jokesPlayed[Random.Range(0, GameManagerScript.Instance.jokesPlayed.Count)];
             laughs = jokeToCopy.baseLaughs;
+            Debug.Log("Copied laughs from " + jokeToCopy + ". New laughs: " + laughs);
         }
     }
 

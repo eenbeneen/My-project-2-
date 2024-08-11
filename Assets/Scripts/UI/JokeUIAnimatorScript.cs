@@ -31,7 +31,7 @@ public class JokeUIAnimatorScript : MonoBehaviour//, IPointerEnterHandler, IPoin
         
         if (sender as JokeUIScript == jokeUIScript && !jokeBeingPlayed && enableActiveAnimations)
         {
-            LeanTween.scale(jokeAnimated, new Vector3(1f, 1f, 1f), 0.2f).setEase(LeanTweenType.easeOutQuad);
+            LeanTween.scale(jokeAnimated, new Vector3(1f, 1f, 1f), 0.2f).setEaseOutQuad();
         }
     }
 

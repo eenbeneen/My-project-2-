@@ -32,7 +32,7 @@ public class TypeWheelScript : MonoBehaviour
         JokeUIScript.OnJokeSelected += JokeUIScript_OnJokeSelected;
         JokeUIScript.OnJokeUnselected += JokeUIScript_OnJokeUnselected;
 
-        int radius = (int)typeWheelImage.GetComponent<RectTransform>().rect.width; ;
+        int radius = (int)typeWheelImage.GetComponent<RectTransform>().rect.width;
         float angle = (67.5f * Mathf.PI) / 180;
         for (int i = 0; i < NUMTYPES; i++)
         {
@@ -84,6 +84,11 @@ public class TypeWheelScript : MonoBehaviour
             position += jokeTypePositionsOnCircleArray[i] * ((float)moodValueArray[i] / 100);
         }
 
+        int radius = (int)typeWheelImage.GetComponent<RectTransform>().rect.width;
+        if (position.magnitude > radius / 2)
+        {
+            position = position.normalized * (radius / 2);
+        }
 
         return position;
 
@@ -169,7 +174,6 @@ public class TypeWheelScript : MonoBehaviour
         float margin = 5f;
         if (indicatorVector2.magnitude < margin)
         {
-            Debug.Log("Type is normal");
             return JokeSOScript.JokeType.Normal;
             
         }

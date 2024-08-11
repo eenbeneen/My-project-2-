@@ -95,7 +95,7 @@ public class PlayerDeckManagerScript : MonoBehaviour
     {
         jokeSO.OnPlay();
 
-        float delayFromAnimation = 2f;
+        float delayFromAnimation = 2.5f;
 
         HandUIScript.Instance.SetAllButtonsActive(false);
 

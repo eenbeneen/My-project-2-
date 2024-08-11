@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManagerScript : MonoBehaviour
 {
@@ -12,7 +14,7 @@ public class GameManagerScript : MonoBehaviour
     public event EventHandler OnEnemyTurnStart;
     public event EventHandler OnMatchStart;
 
-    public int secondsPerTurn = 120;
+    public int secondsPerTurn;
 
     private int secondsLeftThisTurn;
 
@@ -24,6 +26,7 @@ public class GameManagerScript : MonoBehaviour
 
     [SerializeField] private GameObject winScreenUI;
     [SerializeField] private GameObject lossScreenUI;
+    [SerializeField] private Button endTurnButton;
 
     public List<JokeSOScript> jokesPlayed = new List<JokeSOScript>();
 
@@ -34,6 +37,8 @@ public class GameManagerScript : MonoBehaviour
 
         winScreenUI.SetActive(false);
         lossScreenUI.SetActive(false);
+
+        endTurnButton.onClick.AddListener(delegate { StartEnemyTurn(); });
         
     }
 
@@ -152,6 +157,15 @@ public class GameManagerScript : MonoBehaviour
         lossScreenUI.SetActive(true);
         isPlayerTurn = false;
         isEnemyTurn = false;
+    }
+
+    public bool IsJokePlayable(JokeSOScript jokeSO)
+    {
+        if (jokeSO.secondsToTell > secondsLeftThisTurn)
+        {
+            return false;
+        }
+        return true;
     }
 
 }

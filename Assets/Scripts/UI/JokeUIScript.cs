@@ -29,12 +29,15 @@ public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     [SerializeField] private Transform playedJokeUI;
     [SerializeField] private Button buttonComponent;
     [SerializeField] private JokeUIAnimatorScript jokeUIAnimator;
+    [SerializeField] private Image deselectedImage;
     
 
     private JokeSOScript jokeSO;
+    private bool jokeBeingPlayed;
     
-    
-    private bool buttonActive = true;
+    private bool isButtonActive = true;
+
+    private bool isSelected;
 
     
 
@@ -45,7 +48,7 @@ public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         //If this object's parent is the PlayedJokeUI object, play the animation to play the joke
         if (transform.parent == playedJokeUI )
         {
-
+            jokeBeingPlayed = true;
             SetButtonActive(false);
             jokeUIAnimator.PlayJokePlayedAnimation();
             
@@ -79,14 +82,21 @@ public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     private void Update()
     {
-        if (buttonActive)
+        if (isButtonActive)
         {
+            
+            if (jokeSO != null)
+            {
+                SetButtonActive(GameManagerScript.Instance.IsJokePlayable(jokeSO));
+            }
             buttonComponent.enabled = true;
         }
         else
         {
             buttonComponent.enabled = false;
         }
+        
+        
     }
 
 
@@ -94,16 +104,19 @@ public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         this.jokeSO = jokeSO;
         jokeSO.InitializeVariables(sentByPlayer);
+        //UpdateVisual();
     }
 
     public void UpdateVisual()
     {
+        Debug.Log("Joke Visual Updating");
         nameText.text = jokeSO.name;
         typeText.text = jokeSO.type.ToString() + " Joke";
         laughsScoreText.text = jokeSO.laughs.ToString();
         descriptionText.text = jokeSO.description;
         timeToTellText.text = jokeSO.secondsToTell.ToString();
         moodChangeText.text = jokeSO.moodChange.ToString();
+        
     }
 
 
@@ -128,8 +141,30 @@ public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void SetButtonActive(bool value)
     {
-        buttonActive = value;
+        isButtonActive = value;
+
+        if (!value && isSelected)
+        {
+            isSelected = false;
+            OnJokeUnselected?.Invoke(this, EventArgs.Empty);
+        }
+        
         jokeUIAnimator.ActiveAnimationsEnabled(value);
+
+        if (deselectedImage != null)
+        {
+            if (!jokeBeingPlayed)
+            {
+
+                deselectedImage.gameObject.SetActive(!value);
+            }
+            else
+            {
+                deselectedImage.gameObject.SetActive(false);
+            }
+        }
+        
+        
     }
 
     public void MoveTo(Vector3 position)
@@ -140,12 +175,14 @@ public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public void OnPointerEnter(PointerEventData pointerEventData)
     {
         transform.SetAsLastSibling();
-        if (buttonActive)
+        if (isButtonActive)
         {
+            isSelected = true;
             OnJokeSelected?.Invoke(this, new OnJokeSelectedEventArgs
             {
                 jokeSO = jokeSO
             });
+            
         }
         
         
@@ -153,7 +190,9 @@ public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void OnPointerExit(PointerEventData pointerEventData)
     {
+        isSelected = false;
         OnJokeUnselected?.Invoke(this, EventArgs.Empty);
+        
     }
 
 }

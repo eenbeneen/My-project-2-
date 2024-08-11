@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87731e1c80808814b85a1270fabbf087, type: 3}
   m_Name: Prank
   m_EditorClassIdentifier: 
-  description: '"THERE''S a camera, and THERE''S a camera, and THERE''S a camera..."'
+  description: 
   baseLaughs: 8
   baseType: 7
   baseMoodChange: 30
@@ -21,4 +21,4 @@ MonoBehaviour:
   type: 7
   moodChange: 30
   secondsToTell: 30
-  isPlayerJoke: 0
+  isPlayerJoke: 1

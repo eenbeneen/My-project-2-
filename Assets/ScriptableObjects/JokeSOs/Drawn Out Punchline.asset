@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87731e1c80808814b85a1270fabbf087, type: 3}
   m_Name: Drawn Out Punchline
   m_EditorClassIdentifier: 
-  description: '"So theres this man who works at a place and has a boss who ... and
-    then the President says ''They got my pants!''"'
+  description: 
   baseLaughs: 14
   baseType: 7
   baseMoodChange: 20
