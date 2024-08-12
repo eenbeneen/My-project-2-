@@ -2007,6 +2007,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jokeUITemplate: {fileID: 213684851}
   deckTransform: {fileID: 714155490}
+  endTurnButtonUI: {fileID: 1231263232}
   jokeUIList: []
 --- !u!1 &844294645
 GameObject:
@@ -2458,8 +2459,9 @@ GameObject:
   - component: {fileID: 1231263233}
   - component: {fileID: 1231263232}
   - component: {fileID: 1231263231}
+  - component: {fileID: 1231263235}
   m_Layer: 0
-  m_Name: EndTurnButton
+  m_Name: EndTurnButtonUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2521,11 +2523,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_NormalColor: {r: 0, g: 0.38823533, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.0032039948, g: 0.2656671, b: 0.6792453, a: 1}
+    m_PressedColor: {r: 0, g: 0.38823533, b: 1, a: 1}
+    m_SelectedColor: {r: 0, g: 0.38823533, b: 1, a: 1}
+    m_DisabledColor: {r: 0.22739409, g: 0.3954935, b: 0.6603774, a: 0.69411767}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -2582,6 +2584,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1231263229}
   m_CullTransparentMesh: 1
+--- !u!114 &1231263235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231263229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6689420bb37ca3b4ab61fbde8251b0a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1336277993
 GameObject:
   m_ObjectHideFlags: 0

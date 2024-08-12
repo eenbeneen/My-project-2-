@@ -10,6 +10,7 @@ public class HandUIScript : MonoBehaviour
 
     [SerializeField] private JokeUIScript jokeUITemplate;
     [SerializeField] private Transform deckTransform;
+    [SerializeField] private Button endTurnButtonUI;
 
     public List<JokeUIScript> jokeUIList;
 
@@ -50,6 +51,8 @@ public class HandUIScript : MonoBehaviour
         {
             jokeUI.SetButtonActive(value);
         }
+
+        endTurnButtonUI.interactable = value;
     }
 
     private void UpdateVisual()

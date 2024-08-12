@@ -89,11 +89,11 @@ public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             {
                 SetButtonActive(GameManagerScript.Instance.IsJokePlayable(jokeSO));
             }
-            buttonComponent.enabled = true;
+            buttonComponent.interactable = true;
         }
         else
         {
-            buttonComponent.enabled = false;
+            buttonComponent.interactable = false;
         }
         
         
@@ -103,7 +103,7 @@ public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public void SetJokeSO(JokeSOScript jokeSO, bool sentByPlayer)
     {
         this.jokeSO = jokeSO;
-        jokeSO.InitializeVariables(sentByPlayer);
+        
         //UpdateVisual();
     }
 
@@ -113,6 +113,7 @@ public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         nameText.text = jokeSO.name;
         typeText.text = jokeSO.type.ToString() + " Joke";
         laughsScoreText.text = jokeSO.laughs.ToString();
+        Debug.Log(jokeSO.laughs);
         descriptionText.text = jokeSO.description;
         timeToTellText.text = jokeSO.secondsToTell.ToString();
         moodChangeText.text = jokeSO.moodChange.ToString();
@@ -163,8 +164,8 @@ public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
                 deselectedImage.gameObject.SetActive(false);
             }
         }
-        
-        
+
+
     }
 
     public void MoveTo(Vector3 position)

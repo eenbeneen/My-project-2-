@@ -102,13 +102,14 @@ public class EnemyDeckManagerScript : MonoBehaviour
 
     public void StartPlayingJoke(JokeSOScript jokeSO)
     {
+        jokeSO.InitializeVariables(false);
+        jokeSO.OnPlay();
         StartCoroutine(PlayJoke(jokeSO));
     }
 
     private IEnumerator PlayJoke(JokeSOScript jokeSO)
     {
-        jokeSO.OnPlay();
-        Debug.Log("Joke Onplay activated");
+        Debug.Log(jokeSO.laughs);
 
         EnemyUIScript.Instance.PlayJokeAnimation(jokeSO);
 
@@ -132,6 +133,7 @@ public class EnemyDeckManagerScript : MonoBehaviour
         if (hand.Count > 0)
         {
             JokeSOScript randJokeSO = hand[UnityEngine.Random.Range(0, hand.Count)];
+            
             StartPlayingJoke(randJokeSO);
         }
         else

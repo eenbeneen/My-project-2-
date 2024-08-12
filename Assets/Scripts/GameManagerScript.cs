@@ -115,6 +115,8 @@ public class GameManagerScript : MonoBehaviour
             gameStarted = true;
             StartMatch();
         }
+        
+        
     }
 
     private void StartMatch()
