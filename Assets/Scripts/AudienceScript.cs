@@ -22,7 +22,7 @@ public class AudienceScript : MonoBehaviour
     public event EventHandler OnStatusEffectsFromPlayerChanged;
 
 
-    [SerializeField] private float laughsForPlayer = .5f;
+    [SerializeField] private int laughsForPlayer = 50;
 
     public List<StatusEffect> statusEffectsFromPlayer;
     public List<StatusEffect> statusEffectsFromEnemy;
@@ -60,12 +60,28 @@ public class AudienceScript : MonoBehaviour
         }
 
         //Formula to calculate how much laughs player/enemy gets
-        laughsForPlayer += (changeSign * ((float)jokeSO.laughs / 100)) * TypeWheelScript.Instance.GetMultiplierForType(jokeSO.baseType);
+        laughsForPlayer += (int)(changeSign * (float)jokeSO.laughs * TypeWheelScript.Instance.GetMultiplierForType(jokeSO.baseType));
 
         OnLaughsChanged?.Invoke(this, EventArgs.Empty);
 
         CheckMeterLimit();
 
+    }
+
+    public void SubtractLaughs(int laughs)
+    {
+        AddLaughs(-laughs);
+    }
+
+    public void AddLaughs(int laughs)
+    {
+        laughsForPlayer += laughs;
+
+        Debug.Log("LAUGHS FOR PLAYER: " + laughsForPlayer);
+
+        OnLaughsChanged?.Invoke(this, EventArgs.Empty);
+
+        CheckMeterLimit();
     }
 
     public float GetLaughs()
@@ -75,13 +91,13 @@ public class AudienceScript : MonoBehaviour
 
     public void CheckMeterLimit()
     {
-        if (laughsForPlayer >= 1f)
+        if (laughsForPlayer >= 100)
         {
 
             OnMeterFull?.Invoke(this, EventArgs.Empty);
 
         }
-        else if (laughsForPlayer <= 0f)
+        else if (laughsForPlayer <= 0)
         {
 
             OnMeterEmpty?.Invoke(this, EventArgs.Empty);
@@ -105,7 +121,7 @@ public class AudienceScript : MonoBehaviour
             switch (effect)
             {
                 case StatusEffect.TheGiggles:
-                    laughsForPlayer += .01f;
+                    laughsForPlayer += 1;
                     if (!effectsTriggered.Contains(effect))
                     {
                         //the giggles has not been triggered before

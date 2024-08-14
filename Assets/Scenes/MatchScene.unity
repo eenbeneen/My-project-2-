@@ -1120,7 +1120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57d382fcb1319e47accf2c695d63361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laughsForPlayer: 0.5
+  laughsForPlayer: 50
   statusEffectsFromPlayer: 
   statusEffectsFromEnemy: 
 --- !u!4 &388900548
@@ -2055,21 +2055,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingDeck:
   - {fileID: 11400000, guid: a1a222055c0758b4aaf5d227f65789a6, type: 2}
-  - {fileID: 11400000, guid: 204246a224a30dc43ba6277d44b8bd2b, type: 2}
-  - {fileID: 11400000, guid: 720231c008b65744b92c4acb1295fd4b, type: 2}
-  - {fileID: 11400000, guid: 87775c73d82acb0478cce11a95c7671d, type: 2}
+  - {fileID: 11400000, guid: 9b9f30f2a2cc3aa4cab0226010200893, type: 2}
+  - {fileID: 11400000, guid: 9b9f30f2a2cc3aa4cab0226010200893, type: 2}
+  - {fileID: 11400000, guid: 9b9f30f2a2cc3aa4cab0226010200893, type: 2}
   - {fileID: 11400000, guid: d4593115125e7364d97085a04cb63374, type: 2}
-  - {fileID: 11400000, guid: d79afc4ccd196af46b14eb7b90202798, type: 2}
-  - {fileID: 11400000, guid: 423a9e4f399c7fa4e9331d8d7ff30f16, type: 2}
-  - {fileID: 11400000, guid: 040aced351a071942b4ab20689ac6bd2, type: 2}
-  - {fileID: 11400000, guid: 3f5b25c16834e064da96c5d0c4e4be33, type: 2}
-  - {fileID: 11400000, guid: 3f3b305caec0c5141a10224c89d05305, type: 2}
-  - {fileID: 11400000, guid: e91e190fc425bbf459bf7190d7ac5af7, type: 2}
-  - {fileID: 11400000, guid: e856fe84143966d4782223a7ef6d28b2, type: 2}
-  - {fileID: 11400000, guid: 68202f0b6c0432f4a8a069748acffe85, type: 2}
-  - {fileID: 11400000, guid: 8a0f8f2fd4310b14e96fc3c74ba242da, type: 2}
-  - {fileID: 11400000, guid: 975974498226ff94d857ea3fad0cbda2, type: 2}
-  - {fileID: 11400000, guid: d672add2acb69c44995e210707995978, type: 2}
+  - {fileID: 11400000, guid: 9b9f30f2a2cc3aa4cab0226010200893, type: 2}
+  - {fileID: 11400000, guid: 9b9f30f2a2cc3aa4cab0226010200893, type: 2}
+  - {fileID: 11400000, guid: 9b9f30f2a2cc3aa4cab0226010200893, type: 2}
+  - {fileID: 11400000, guid: 9b9f30f2a2cc3aa4cab0226010200893, type: 2}
+  - {fileID: 11400000, guid: 9b9f30f2a2cc3aa4cab0226010200893, type: 2}
+  - {fileID: 11400000, guid: 9b9f30f2a2cc3aa4cab0226010200893, type: 2}
+  - {fileID: 11400000, guid: 9b9f30f2a2cc3aa4cab0226010200893, type: 2}
+  - {fileID: 11400000, guid: 9b9f30f2a2cc3aa4cab0226010200893, type: 2}
+  - {fileID: 11400000, guid: 9b9f30f2a2cc3aa4cab0226010200893, type: 2}
+  - {fileID: 11400000, guid: 6383e6e5a7347484fba4483674f43707, type: 2}
+  - {fileID: 11400000, guid: 6383e6e5a7347484fba4483674f43707, type: 2}
+  - {fileID: 11400000, guid: 6383e6e5a7347484fba4483674f43707, type: 2}
   handGameObject: {fileID: 806132889}
   startingHandSize: 6
 --- !u!1 &892602555
@@ -2427,22 +2428,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingDeck:
+  - {fileID: 11400000, guid: a1a222055c0758b4aaf5d227f65789a6, type: 2}
+  - {fileID: 11400000, guid: 9b9f30f2a2cc3aa4cab0226010200893, type: 2}
+  - {fileID: 11400000, guid: 9b9f30f2a2cc3aa4cab0226010200893, type: 2}
+  - {fileID: 11400000, guid: 9b9f30f2a2cc3aa4cab0226010200893, type: 2}
   - {fileID: 11400000, guid: d4593115125e7364d97085a04cb63374, type: 2}
-  - {fileID: 11400000, guid: d4593115125e7364d97085a04cb63374, type: 2}
-  - {fileID: 11400000, guid: d4593115125e7364d97085a04cb63374, type: 2}
-  - {fileID: 11400000, guid: d4593115125e7364d97085a04cb63374, type: 2}
-  - {fileID: 11400000, guid: d4593115125e7364d97085a04cb63374, type: 2}
-  - {fileID: 11400000, guid: d79afc4ccd196af46b14eb7b90202798, type: 2}
-  - {fileID: 11400000, guid: 423a9e4f399c7fa4e9331d8d7ff30f16, type: 2}
-  - {fileID: 11400000, guid: 040aced351a071942b4ab20689ac6bd2, type: 2}
-  - {fileID: 11400000, guid: 3f5b25c16834e064da96c5d0c4e4be33, type: 2}
-  - {fileID: 11400000, guid: 3f3b305caec0c5141a10224c89d05305, type: 2}
-  - {fileID: 11400000, guid: e91e190fc425bbf459bf7190d7ac5af7, type: 2}
-  - {fileID: 11400000, guid: e856fe84143966d4782223a7ef6d28b2, type: 2}
-  - {fileID: 11400000, guid: 68202f0b6c0432f4a8a069748acffe85, type: 2}
-  - {fileID: 11400000, guid: 8a0f8f2fd4310b14e96fc3c74ba242da, type: 2}
-  - {fileID: 11400000, guid: 975974498226ff94d857ea3fad0cbda2, type: 2}
-  - {fileID: 11400000, guid: d672add2acb69c44995e210707995978, type: 2}
+  - {fileID: 11400000, guid: 9b9f30f2a2cc3aa4cab0226010200893, type: 2}
+  - {fileID: 11400000, guid: 9b9f30f2a2cc3aa4cab0226010200893, type: 2}
+  - {fileID: 11400000, guid: 9b9f30f2a2cc3aa4cab0226010200893, type: 2}
+  - {fileID: 11400000, guid: 9b9f30f2a2cc3aa4cab0226010200893, type: 2}
+  - {fileID: 11400000, guid: 9b9f30f2a2cc3aa4cab0226010200893, type: 2}
+  - {fileID: 11400000, guid: 9b9f30f2a2cc3aa4cab0226010200893, type: 2}
+  - {fileID: 11400000, guid: 9b9f30f2a2cc3aa4cab0226010200893, type: 2}
+  - {fileID: 11400000, guid: 9b9f30f2a2cc3aa4cab0226010200893, type: 2}
+  - {fileID: 11400000, guid: 9b9f30f2a2cc3aa4cab0226010200893, type: 2}
+  - {fileID: 11400000, guid: 6383e6e5a7347484fba4483674f43707, type: 2}
+  - {fileID: 11400000, guid: 6383e6e5a7347484fba4483674f43707, type: 2}
+  - {fileID: 11400000, guid: 6383e6e5a7347484fba4483674f43707, type: 2}
   startingHandSize: 5
   enemyUI: {fileID: 1151882924}
   enemyJokePlayingTimerMax: 5

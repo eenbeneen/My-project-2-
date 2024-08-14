@@ -6,6 +6,11 @@ using UnityEngine;
 public class ContagiousLaughter : JokeSOScript
 {
 
+    public override string GetDescription()
+    {
+        return "Give the audience 3 cases of The Giggles";
+    }
+
     public override void OnPlay()
     {
         if (isPlayerJoke)

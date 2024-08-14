@@ -103,18 +103,17 @@ public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public void SetJokeSO(JokeSOScript jokeSO, bool sentByPlayer)
     {
         this.jokeSO = jokeSO;
-        
+        jokeSO.InitializeVariables(true);
         //UpdateVisual();
     }
 
     public void UpdateVisual()
     {
-        Debug.Log("Joke Visual Updating");
         nameText.text = jokeSO.name;
         typeText.text = jokeSO.type.ToString() + " Joke";
         laughsScoreText.text = jokeSO.laughs.ToString();
         Debug.Log(jokeSO.laughs);
-        descriptionText.text = jokeSO.description;
+        descriptionText.text = jokeSO.GetDescription();
         timeToTellText.text = jokeSO.secondsToTell.ToString();
         moodChangeText.text = jokeSO.moodChange.ToString();
         

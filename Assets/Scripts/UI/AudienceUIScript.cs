@@ -43,14 +43,14 @@ public class AudienceUIScript : MonoBehaviour
     private void JokeUIScript_OnJokeSelected(object sender, JokeUIScript.OnJokeSelectedEventArgs e)
     {
         
-        float laughsToAdd = (float)e.jokeSO.laughs / 100 * TypeWheelScript.Instance.GetMultiplierForType(e.jokeSO.baseType);
-        laughsMeterPreview.fillAmount = AudienceScript.Instance.GetLaughs() + laughsToAdd;
+        int laughsToAdd = (int)(e.jokeSO.laughs * TypeWheelScript.Instance.GetMultiplierForType(e.jokeSO.baseType));
+        laughsMeterPreview.fillAmount = (AudienceScript.Instance.GetLaughs() + laughsToAdd) / 100f;
         laughsMeterPreview.gameObject.SetActive(true);
     }
 
     private void AudienceScript_OnLaughsChanged(object sender, System.EventArgs e)
     {
-        laughsMeter.fillAmount = AudienceScript.Instance.GetLaughs();
+        laughsMeter.fillAmount = AudienceScript.Instance.GetLaughs() / 100f;
     }
 
     private string GetNewStatusEffectsText(List<AudienceScript.StatusEffect> statusEffects)

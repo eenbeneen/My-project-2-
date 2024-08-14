@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//make abstract later
 [CreateAssetMenu()]
 public class JokeSOScript : ScriptableObject
 {
@@ -18,7 +19,6 @@ public class JokeSOScript : ScriptableObject
         Wholesome,
     }
 
-    public string description;
     public int baseLaughs;
     public JokeType baseType;
     public int baseMoodChange;
@@ -30,6 +30,7 @@ public class JokeSOScript : ScriptableObject
     [HideInInspector] public int secondsToTell;
     [HideInInspector] public bool isPlayerJoke;
 
+
     public void InitializeVariables(bool sentByPlayer)
     {
         laughs = baseLaughs;
@@ -37,6 +38,12 @@ public class JokeSOScript : ScriptableObject
         moodChange = baseMoodChange;
         secondsToTell = baseSecondsToTell;
         isPlayerJoke = sentByPlayer;
+    }
+
+    //make this abstract once you can make the class abstract
+    public virtual string GetDescription()
+    {
+        return "No description";
     }
 
     public virtual bool PlayCondition()

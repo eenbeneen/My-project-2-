@@ -2,10 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//rework joke system then finish this joke
 [CreateAssetMenu()]
 public class InsideJoke : JokeSOScript
 {
 
+    public override string GetDescription()
+    {
+        return "Copy something idk yet";
+    }
 
     public override void OnPlay()
     {
