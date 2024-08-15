@@ -12,13 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41f80ae14e0099d488dda7a06c0d2638, type: 3}
   m_Name: Inside Joke
   m_EditorClassIdentifier: 
-  description: Copy the Laughs of a random card played this match
   baseLaughs: 0
   baseType: 3
-  baseMoodChange: 20
+  baseMoodChange: 0
   baseSecondsToTell: 20
-  laughs: 0
+  laughs: 10
   type: 3
-  moodChange: 20
+  moodChange: 0
   secondsToTell: 20
-  isPlayerJoke: 1
+  isPlayerJoke: 0

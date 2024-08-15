@@ -163,7 +163,7 @@ public class GameManagerScript : MonoBehaviour
 
     public bool IsJokePlayable(JokeSOScript jokeSO)
     {
-        if (jokeSO.secondsToTell > secondsLeftThisTurn)
+        if (jokeSO.secondsToTell > secondsLeftThisTurn && jokeSO.PlayCondition())
         {
             return false;
         }

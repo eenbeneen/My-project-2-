@@ -9,14 +9,10 @@ public class JokeSOScript : ScriptableObject
     public enum JokeType
     {
         Normal,
-        Physical,
-        Educated,
-        Ironic,
+        Dumb,
+        Nice,
+        Smart,
         Rude,
-        Controversial,
-        Bad,
-        Shocking,
-        Wholesome,
     }
 
     public int baseLaughs;

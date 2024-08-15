@@ -9,12 +9,8 @@ public class MoodChanger : JokeSOScript
 
     public override string GetDescription()
     {
-        return "+10 Wholesome Mood";
+        return "+10 Nice Mood";
     }
 
-    public override void OnPlay()
-    {
-        moodChange = 10;
-    }
 
 }

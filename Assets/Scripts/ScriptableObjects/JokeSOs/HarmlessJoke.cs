@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu()]
-public class NormalJoke : JokeSOScript
+public class HarmlessJoke : JokeSOScript
 {
-
 
     public override string GetDescription()
     {
-        return "+10 Laughs";
+        return "+5 Nice Laughs, +10 Nice Mood";
     }
+
 
 
 }

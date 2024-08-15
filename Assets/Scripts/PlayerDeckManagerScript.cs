@@ -38,6 +38,11 @@ public class PlayerDeckManagerScript : MonoBehaviour
     {
         GameManagerScript.Instance.OnMatchStart += GameManagerScript_OnMatchStart;
         GameManagerScript.Instance.OnPlayerTurnStart += GameManagerScript_OnPlayerTurnStart;
+
+        foreach (JokeSOScript jokeSO in startingDeck)
+        {
+            jokeSO.InitializeVariables(true);
+        }
     }
 
     private void GameManagerScript_OnPlayerTurnStart(object sender, EventArgs e)
@@ -73,6 +78,8 @@ public class PlayerDeckManagerScript : MonoBehaviour
                 
                 deck.RemoveAt(0);
                 hand.Add(jokeSODrawn);
+
+                jokeSODrawn.InitializeVariables(true);
 
                 OnJokeDrawn?.Invoke(this, new OnJokeDrawnEventArgs
                 {

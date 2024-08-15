@@ -10,7 +10,7 @@ public class TypeWheelScript : MonoBehaviour
 
     public static TypeWheelScript Instance { get; private set; }
 
-    private const int NUMTYPES = 8;
+    private const int NUMTYPES = 4;
 
     [SerializeField] private int[] currentMoodValueArray = new int[NUMTYPES];
     [SerializeField] private JokeSOScript.JokeType[] jokeTypeArray = new JokeSOScript.JokeType[NUMTYPES];
@@ -33,12 +33,12 @@ public class TypeWheelScript : MonoBehaviour
         JokeUIScript.OnJokeUnselected += JokeUIScript_OnJokeUnselected;
 
         int radius = (int)typeWheelImage.GetComponent<RectTransform>().rect.width;
-        float angle = (67.5f * Mathf.PI) / 180;
+        float angle = (45f * Mathf.PI) / 180;
         for (int i = 0; i < NUMTYPES; i++)
         {
             jokeTypePositionsOnCircleArray[i] = new Vector2(Mathf.Cos(angle) * radius, Mathf.Sin(angle) * radius);
 
-            angle -= (45f * Mathf.PI) / 180;
+            angle -= (90f * Mathf.PI) / 180;
         }
 
     }
@@ -122,7 +122,6 @@ public class TypeWheelScript : MonoBehaviour
                 
             }
         }
-
         return moodValueArray;
     }
 
@@ -144,20 +143,18 @@ public class TypeWheelScript : MonoBehaviour
         }
 
         int distanceBetweenIndexes = Mathf.Abs(mainJokeTypeIndex - jokeTypeIndex);
-        distanceBetweenIndexes = Mathf.Min(distanceBetweenIndexes, 8 - distanceBetweenIndexes);
+        distanceBetweenIndexes = Mathf.Min(distanceBetweenIndexes, NUMTYPES - distanceBetweenIndexes);
+        Debug.Log(distanceBetweenIndexes);
 
         //Multipliers based on distance from main mood;
         switch (distanceBetweenIndexes)
         {
             case 0:
-                return 2f;
-            case 1:
                 return 1f;
-            case 2:
+            case 1:
                 return 0.5f;
-            case 3:
-                return 0.25f;
             default:
+            case 2:
                 return 0f;
 
         }

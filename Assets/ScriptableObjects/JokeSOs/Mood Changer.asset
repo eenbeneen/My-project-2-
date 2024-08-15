@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Mood Changer
   m_EditorClassIdentifier: 
   baseLaughs: 0
-  baseType: 8
-  baseMoodChange: 0
+  baseType: 2
+  baseMoodChange: 10
   baseSecondsToTell: 0
   laughs: 0
-  type: 8
+  type: 2
   moodChange: 10
   secondsToTell: 0
-  isPlayerJoke: 1
+  isPlayerJoke: 0

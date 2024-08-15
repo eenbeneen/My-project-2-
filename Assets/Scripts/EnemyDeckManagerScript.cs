@@ -39,6 +39,11 @@ public class EnemyDeckManagerScript : MonoBehaviour
         GameManagerScript.Instance.OnEnemyTurnStart += GameManagerScript_OnEnemyTurnStart;
 
         enemyJokePlayingTimer = enemyJokePlayingTimerMax;
+
+        foreach (JokeSOScript jokeSO in startingDeck)
+        {
+            jokeSO.InitializeVariables(false);
+        }
     }
 
     private void GameManagerScript_OnEnemyTurnStart(object sender, EventArgs e)
@@ -91,6 +96,8 @@ public class EnemyDeckManagerScript : MonoBehaviour
                 JokeSOScript jokeSODrawn = deck[0];
                 deck.RemoveAt(0);
                 hand.Add(jokeSODrawn);
+
+                jokeSODrawn.InitializeVariables(false);
             }
             else
             {

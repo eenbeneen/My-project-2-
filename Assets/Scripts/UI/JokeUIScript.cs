@@ -82,9 +82,9 @@ public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     private void Update()
     {
+
         if (isButtonActive)
         {
-            
             if (jokeSO != null)
             {
                 SetButtonActive(GameManagerScript.Instance.IsJokePlayable(jokeSO));
@@ -103,7 +103,7 @@ public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public void SetJokeSO(JokeSOScript jokeSO, bool sentByPlayer)
     {
         this.jokeSO = jokeSO;
-        jokeSO.InitializeVariables(true);
+        
         //UpdateVisual();
     }
 

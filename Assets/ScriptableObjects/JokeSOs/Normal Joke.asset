@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb3de56a4f17a79499d68f43e5d80034, type: 3}
   m_Name: Normal Joke
   m_EditorClassIdentifier: 
-  baseLaughs: 0
+  baseLaughs: 10
   baseType: 0
   baseMoodChange: 0
-  baseSecondsToTell: 10
-  laughs: 0
+  baseSecondsToTell: 20
+  laughs: 10
   type: 0
   moodChange: 0
-  secondsToTell: 10
-  isPlayerJoke: 1
+  secondsToTell: 20
+  isPlayerJoke: 0
