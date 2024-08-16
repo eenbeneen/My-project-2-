@@ -9,15 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04e82068e98277e4a924f4d22bf5ecbb, type: 3}
-  m_Name: Harmless Joke
+  m_Script: {fileID: 11500000, guid: 5eb537dd8457dcb46aa168e79b8ebbb3, type: 3}
+  m_Name: Drawn Out Punchline
   m_EditorClassIdentifier: 
-  baseLaughs: 10
-  baseType: 2
-  baseMoodChange: 10
-  baseSecondsToTell: 20
-  laughs: 10
-  type: 2
-  moodChange: 10
-  secondsToTell: 20
-  isPlayerJoke: 1
+  baseLaughs: 20
+  baseType: 1
+  baseMoodChange: 30
+  baseSecondsToTell: 40
+  laughs: 20
+  type: 1
+  moodChange: 30
+  secondsToTell: 40
+  isPlayerJoke: 0

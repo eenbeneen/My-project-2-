@@ -125,7 +125,7 @@ public class GameManagerScript : MonoBehaviour
         StartPlayerTurn();
     }
 
-    private void StartPlayerTurn()
+    public void StartPlayerTurn()
     {
         isPlayerTurn = true;
         isEnemyTurn = false;
@@ -133,7 +133,7 @@ public class GameManagerScript : MonoBehaviour
         OnPlayerTurnStart?.Invoke(this, EventArgs.Empty);
     }
 
-    private void StartEnemyTurn()
+    public void StartEnemyTurn()
     {
         isPlayerTurn = false;
         isEnemyTurn = true;

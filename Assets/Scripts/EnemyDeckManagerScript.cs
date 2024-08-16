@@ -137,17 +137,32 @@ public class EnemyDeckManagerScript : MonoBehaviour
 
     public void PlayRandomJoke()
     {
-        if (hand.Count > 0)
+        List<JokeSOScript> playableJokeSOList = new List<JokeSOScript>();
+        foreach (JokeSOScript jokeSO in hand)
         {
-            JokeSOScript randJokeSO = hand[UnityEngine.Random.Range(0, hand.Count)];
+            if (GameManagerScript.Instance.IsJokePlayable(jokeSO))
+            {
+                playableJokeSOList.Add(jokeSO);
+            }
+        }
+
+        if (playableJokeSOList.Count > 0)
+        {
+            JokeSOScript randJokeSO = playableJokeSOList[UnityEngine.Random.Range(0, playableJokeSOList.Count)];
             
             StartPlayingJoke(randJokeSO);
         }
         else
         {
-            ShuffleStartingDeck();
-            Draw(startingHandSize);
-            PlayRandomJoke();
+            Debug.Log("Out of cards!");
+
+            if (deck.Count == 0)
+            {
+                Debug.Log("Enemy deck empty! Reshuffling...");
+                ShuffleStartingDeck();
+            }
+            
+            GameManagerScript.Instance.StartPlayerTurn();
         }
         
     }

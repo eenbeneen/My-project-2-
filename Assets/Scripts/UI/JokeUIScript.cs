@@ -22,14 +22,14 @@ public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private TextMeshProUGUI typeText;
-    [SerializeField] private TextMeshProUGUI laughsScoreText;
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private TextMeshProUGUI timeToTellText;
-    [SerializeField] private TextMeshProUGUI moodChangeText;
     [SerializeField] private Transform playedJokeUI;
     [SerializeField] private Button buttonComponent;
     [SerializeField] private JokeUIAnimatorScript jokeUIAnimator;
     [SerializeField] private Image deselectedImage;
+    [SerializeField] private Image background;
+    [SerializeField] private List<Color> typeColorList;
     
 
     private JokeSOScript jokeSO;
@@ -83,6 +83,8 @@ public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     private void Update()
     {
 
+        UpdateVisual();
+
         if (isButtonActive)
         {
             if (jokeSO != null)
@@ -104,19 +106,40 @@ public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         this.jokeSO = jokeSO;
         
-        //UpdateVisual();
+        
     }
 
     public void UpdateVisual()
     {
-        nameText.text = jokeSO.name;
-        typeText.text = jokeSO.type.ToString() + " Joke";
-        laughsScoreText.text = jokeSO.laughs.ToString();
-        Debug.Log(jokeSO.laughs);
-        descriptionText.text = jokeSO.GetDescription();
-        timeToTellText.text = jokeSO.secondsToTell.ToString();
-        moodChangeText.text = jokeSO.moodChange.ToString();
-        
+        if (jokeSO != null)
+        {
+            nameText.text = jokeSO.name;
+            typeText.text = jokeSO.type.ToString() + " Joke";
+            descriptionText.text = jokeSO.GetDescription();
+            timeToTellText.text = jokeSO.secondsToTell.ToString() + "s";
+
+            int colorIndex;
+            switch(jokeSO.type)
+            {
+                default:
+                case JokeSOScript.JokeType.Normal: 
+                    colorIndex = 0; 
+                    break;
+                case JokeSOScript.JokeType.Dumb: 
+                    colorIndex = 1; 
+                    break;
+                case JokeSOScript.JokeType.Nice: 
+                    colorIndex = 2; 
+                    break;
+                case JokeSOScript.JokeType.Smart: 
+                    colorIndex = 3; 
+                    break;
+                case JokeSOScript.JokeType.Rude: 
+                    colorIndex = 4; 
+                    break;
+            }
+            background.color = typeColorList[colorIndex];
+        }
     }
 
 

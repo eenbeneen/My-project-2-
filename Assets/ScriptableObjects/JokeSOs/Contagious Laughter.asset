@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aad637808011e84a9530ee6b2acb7cf, type: 3}
   m_Name: Contagious Laughter
   m_EditorClassIdentifier: 
-  description: Give the audience 3 cases of The Giggles
-  baseLaughs: 11
+  baseLaughs: 0
   baseType: 0
-  baseMoodChange: 20
+  baseMoodChange: 0
   baseSecondsToTell: 10
   laughs: 11
   type: 0

@@ -8,7 +8,7 @@ public class HarmlessJoke : JokeSOScript
 
     public override string GetDescription()
     {
-        return "+5 Nice Laughs, +10 Nice Mood";
+        return "+" + laughs * TypeWheelScript.Instance.GetMultiplierForType(type) + " Laughs, +" + moodChange + " Mood";
     }
 
 

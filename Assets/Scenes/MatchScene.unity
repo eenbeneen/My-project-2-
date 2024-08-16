@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &21517798 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6470774555888006585, guid: 7533f90bb14f0184bb6ab1719d676d7c, type: 3}
+  m_PrefabInstance: {fileID: 615081653}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &29636400
 GameObject:
   m_ObjectHideFlags: 0
@@ -1487,12 +1498,100 @@ PrefabInstance:
     m_TransformParent: {fileID: 806132890}
     m_Modifications:
     - target: {fileID: 1279714190783132643, guid: 7533f90bb14f0184bb6ab1719d676d7c, type: 3}
+      propertyPath: background
+      value: 
+      objectReference: {fileID: 21517798}
+    - target: {fileID: 1279714190783132643, guid: 7533f90bb14f0184bb6ab1719d676d7c, type: 3}
       propertyPath: playedJokeUI
       value: 
       objectReference: {fileID: 794671767}
     - target: {fileID: 1279714190783132643, guid: 7533f90bb14f0184bb6ab1719d676d7c, type: 3}
       propertyPath: layoutElement
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279714190783132643, guid: 7533f90bb14f0184bb6ab1719d676d7c, type: 3}
+      propertyPath: typeColorList.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279714190783132643, guid: 7533f90bb14f0184bb6ab1719d676d7c, type: 3}
+      propertyPath: typeColorList.Array.data[0].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279714190783132643, guid: 7533f90bb14f0184bb6ab1719d676d7c, type: 3}
+      propertyPath: typeColorList.Array.data[0].b
+      value: 0.8705883
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279714190783132643, guid: 7533f90bb14f0184bb6ab1719d676d7c, type: 3}
+      propertyPath: typeColorList.Array.data[0].g
+      value: 0.7686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279714190783132643, guid: 7533f90bb14f0184bb6ab1719d676d7c, type: 3}
+      propertyPath: typeColorList.Array.data[0].r
+      value: 0.6784314
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279714190783132643, guid: 7533f90bb14f0184bb6ab1719d676d7c, type: 3}
+      propertyPath: typeColorList.Array.data[1].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279714190783132643, guid: 7533f90bb14f0184bb6ab1719d676d7c, type: 3}
+      propertyPath: typeColorList.Array.data[1].b
+      value: 0.69803923
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279714190783132643, guid: 7533f90bb14f0184bb6ab1719d676d7c, type: 3}
+      propertyPath: typeColorList.Array.data[1].g
+      value: 0.48627454
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279714190783132643, guid: 7533f90bb14f0184bb6ab1719d676d7c, type: 3}
+      propertyPath: typeColorList.Array.data[1].r
+      value: 0.24705884
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279714190783132643, guid: 7533f90bb14f0184bb6ab1719d676d7c, type: 3}
+      propertyPath: typeColorList.Array.data[2].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279714190783132643, guid: 7533f90bb14f0184bb6ab1719d676d7c, type: 3}
+      propertyPath: typeColorList.Array.data[2].b
+      value: 0.8078432
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279714190783132643, guid: 7533f90bb14f0184bb6ab1719d676d7c, type: 3}
+      propertyPath: typeColorList.Array.data[2].g
+      value: 0.64705884
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279714190783132643, guid: 7533f90bb14f0184bb6ab1719d676d7c, type: 3}
+      propertyPath: typeColorList.Array.data[2].r
+      value: 0.5058824
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279714190783132643, guid: 7533f90bb14f0184bb6ab1719d676d7c, type: 3}
+      propertyPath: typeColorList.Array.data[3].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279714190783132643, guid: 7533f90bb14f0184bb6ab1719d676d7c, type: 3}
+      propertyPath: typeColorList.Array.data[3].b
+      value: 0.75294125
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279714190783132643, guid: 7533f90bb14f0184bb6ab1719d676d7c, type: 3}
+      propertyPath: typeColorList.Array.data[3].g
+      value: 0.5686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279714190783132643, guid: 7533f90bb14f0184bb6ab1719d676d7c, type: 3}
+      propertyPath: typeColorList.Array.data[3].r
+      value: 0.37647063
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279714190783132643, guid: 7533f90bb14f0184bb6ab1719d676d7c, type: 3}
+      propertyPath: typeColorList.Array.data[4].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279714190783132643, guid: 7533f90bb14f0184bb6ab1719d676d7c, type: 3}
+      propertyPath: typeColorList.Array.data[4].b
+      value: 0.63529414
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279714190783132643, guid: 7533f90bb14f0184bb6ab1719d676d7c, type: 3}
+      propertyPath: typeColorList.Array.data[4].g
+      value: 0.3921569
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279714190783132643, guid: 7533f90bb14f0184bb6ab1719d676d7c, type: 3}
+      propertyPath: typeColorList.Array.data[4].r
+      value: 0.12941177
       objectReference: {fileID: 0}
     - target: {fileID: 2678700538196785845, guid: 7533f90bb14f0184bb6ab1719d676d7c, type: 3}
       propertyPath: m_Enabled
@@ -2058,19 +2157,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a1a222055c0758b4aaf5d227f65789a6, type: 2}
   - {fileID: 11400000, guid: 9b9f30f2a2cc3aa4cab0226010200893, type: 2}
   - {fileID: 11400000, guid: 6383e6e5a7347484fba4483674f43707, type: 2}
-  - {fileID: 11400000, guid: 6383e6e5a7347484fba4483674f43707, type: 2}
+  - {fileID: 11400000, guid: efd444da2fee1c7469bcbf39569bcd02, type: 2}
   - {fileID: 11400000, guid: d4593115125e7364d97085a04cb63374, type: 2}
   - {fileID: 11400000, guid: 9b9f30f2a2cc3aa4cab0226010200893, type: 2}
-  - {fileID: 11400000, guid: cc06594bc6bd61a49a0cbd95b417f2f2, type: 2}
-  - {fileID: 11400000, guid: cc06594bc6bd61a49a0cbd95b417f2f2, type: 2}
+  - {fileID: 11400000, guid: efd444da2fee1c7469bcbf39569bcd02, type: 2}
+  - {fileID: 11400000, guid: efd444da2fee1c7469bcbf39569bcd02, type: 2}
   - {fileID: 11400000, guid: cc06594bc6bd61a49a0cbd95b417f2f2, type: 2}
   - {fileID: 11400000, guid: cc06594bc6bd61a49a0cbd95b417f2f2, type: 2}
   - {fileID: 11400000, guid: cc06594bc6bd61a49a0cbd95b417f2f2, type: 2}
   - {fileID: 11400000, guid: 975974498226ff94d857ea3fad0cbda2, type: 2}
   - {fileID: 11400000, guid: 975974498226ff94d857ea3fad0cbda2, type: 2}
   - {fileID: 11400000, guid: 975974498226ff94d857ea3fad0cbda2, type: 2}
-  - {fileID: 11400000, guid: 6383e6e5a7347484fba4483674f43707, type: 2}
-  - {fileID: 11400000, guid: 6383e6e5a7347484fba4483674f43707, type: 2}
+  - {fileID: 11400000, guid: 5bb65d4fa65947642acad5fc45812dca, type: 2}
+  - {fileID: 11400000, guid: 5bb65d4fa65947642acad5fc45812dca, type: 2}
   - {fileID: 11400000, guid: 6383e6e5a7347484fba4483674f43707, type: 2}
   handGameObject: {fileID: 806132889}
   startingHandSize: 6
@@ -2431,20 +2530,20 @@ MonoBehaviour:
   startingDeck:
   - {fileID: 11400000, guid: a1a222055c0758b4aaf5d227f65789a6, type: 2}
   - {fileID: 11400000, guid: 9b9f30f2a2cc3aa4cab0226010200893, type: 2}
-  - {fileID: 11400000, guid: 9b9f30f2a2cc3aa4cab0226010200893, type: 2}
-  - {fileID: 11400000, guid: 9b9f30f2a2cc3aa4cab0226010200893, type: 2}
+  - {fileID: 11400000, guid: 6383e6e5a7347484fba4483674f43707, type: 2}
+  - {fileID: 11400000, guid: efd444da2fee1c7469bcbf39569bcd02, type: 2}
   - {fileID: 11400000, guid: d4593115125e7364d97085a04cb63374, type: 2}
   - {fileID: 11400000, guid: 9b9f30f2a2cc3aa4cab0226010200893, type: 2}
-  - {fileID: 11400000, guid: 9b9f30f2a2cc3aa4cab0226010200893, type: 2}
-  - {fileID: 11400000, guid: 9b9f30f2a2cc3aa4cab0226010200893, type: 2}
-  - {fileID: 11400000, guid: 9b9f30f2a2cc3aa4cab0226010200893, type: 2}
-  - {fileID: 11400000, guid: 9b9f30f2a2cc3aa4cab0226010200893, type: 2}
-  - {fileID: 11400000, guid: 9b9f30f2a2cc3aa4cab0226010200893, type: 2}
-  - {fileID: 11400000, guid: 9b9f30f2a2cc3aa4cab0226010200893, type: 2}
-  - {fileID: 11400000, guid: 9b9f30f2a2cc3aa4cab0226010200893, type: 2}
-  - {fileID: 11400000, guid: 9b9f30f2a2cc3aa4cab0226010200893, type: 2}
-  - {fileID: 11400000, guid: 6383e6e5a7347484fba4483674f43707, type: 2}
-  - {fileID: 11400000, guid: 6383e6e5a7347484fba4483674f43707, type: 2}
+  - {fileID: 11400000, guid: efd444da2fee1c7469bcbf39569bcd02, type: 2}
+  - {fileID: 11400000, guid: efd444da2fee1c7469bcbf39569bcd02, type: 2}
+  - {fileID: 11400000, guid: cc06594bc6bd61a49a0cbd95b417f2f2, type: 2}
+  - {fileID: 11400000, guid: cc06594bc6bd61a49a0cbd95b417f2f2, type: 2}
+  - {fileID: 11400000, guid: cc06594bc6bd61a49a0cbd95b417f2f2, type: 2}
+  - {fileID: 11400000, guid: 975974498226ff94d857ea3fad0cbda2, type: 2}
+  - {fileID: 11400000, guid: 975974498226ff94d857ea3fad0cbda2, type: 2}
+  - {fileID: 11400000, guid: 975974498226ff94d857ea3fad0cbda2, type: 2}
+  - {fileID: 11400000, guid: 5bb65d4fa65947642acad5fc45812dca, type: 2}
+  - {fileID: 11400000, guid: 5bb65d4fa65947642acad5fc45812dca, type: 2}
   - {fileID: 11400000, guid: 6383e6e5a7347484fba4483674f43707, type: 2}
   startingHandSize: 5
   enemyUI: {fileID: 1151882924}

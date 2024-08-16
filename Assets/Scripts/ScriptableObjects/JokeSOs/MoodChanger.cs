@@ -9,7 +9,7 @@ public class MoodChanger : JokeSOScript
 
     public override string GetDescription()
     {
-        return "+10 Nice Mood";
+        return "+" + moodChange + " Nice Mood";
     }
 
 

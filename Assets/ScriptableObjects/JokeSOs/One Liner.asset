@@ -9,15 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04e82068e98277e4a924f4d22bf5ecbb, type: 3}
-  m_Name: Harmless Joke
+  m_Script: {fileID: 11500000, guid: d0d6978058c10b244b82d1c64a4fa7eb, type: 3}
+  m_Name: One Liner
   m_EditorClassIdentifier: 
-  baseLaughs: 10
-  baseType: 2
-  baseMoodChange: 10
-  baseSecondsToTell: 20
-  laughs: 10
-  type: 2
-  moodChange: 10
-  secondsToTell: 20
+  baseLaughs: 5
+  baseType: 1
+  baseMoodChange: 0
+  baseSecondsToTell: 10
+  laughs: 5
+  type: 1
+  moodChange: 0
+  secondsToTell: 10
   isPlayerJoke: 1

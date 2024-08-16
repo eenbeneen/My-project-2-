@@ -135,6 +135,7 @@ public class TypeWheelScript : MonoBehaviour
         int mainJokeTypeIndex = ArrayUtility.IndexOf(jokeTypeArray, GetJokeTypeMood());
         int jokeTypeIndex = ArrayUtility.IndexOf(jokeTypeArray, jokeType);
 
+
         if (mainJokeTypeIndex == -1)
         {
             
@@ -144,15 +145,14 @@ public class TypeWheelScript : MonoBehaviour
 
         int distanceBetweenIndexes = Mathf.Abs(mainJokeTypeIndex - jokeTypeIndex);
         distanceBetweenIndexes = Mathf.Min(distanceBetweenIndexes, NUMTYPES - distanceBetweenIndexes);
-        Debug.Log(distanceBetweenIndexes);
 
         //Multipliers based on distance from main mood;
         switch (distanceBetweenIndexes)
         {
             case 0:
-                return 1f;
+                return 2f;
             case 1:
-                return 0.5f;
+                return 1f;
             default:
             case 2:
                 return 0f;
@@ -163,7 +163,6 @@ public class TypeWheelScript : MonoBehaviour
 
     private JokeSOScript.JokeType GetJokeTypeMood()
     {
-        
 
         Vector2 indicatorVector2 = typeWheelIndicatorImage.transform.localPosition;
 
@@ -181,12 +180,12 @@ public class TypeWheelScript : MonoBehaviour
         if (indicatorAngle <= 0)
         {
             //Right side of circle
-            positionIndex = (int)-indicatorAngle / 45;
+            positionIndex = (int)-indicatorAngle / 90;
         }
         else
         {
             //Left side of circle
-            positionIndex = (180 - (int)indicatorAngle) / 45 + 4;
+            positionIndex = (180 - (int)indicatorAngle) / 90 + 2;
         }
 
         return jokeTypeArray[positionIndex];
