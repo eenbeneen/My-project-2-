@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManagerScript : MonoBehaviour
 {
+    private const string DUNGEON = "Dungeon";
 
     public static GameManagerScript Instance { get; private set; }
 
@@ -168,6 +170,11 @@ public class GameManagerScript : MonoBehaviour
             return false;
         }
         return true;
+    }
+
+    public void ReturnToDungeon()
+    {
+        SceneManager.LoadScene(DUNGEON);
     }
 
 }

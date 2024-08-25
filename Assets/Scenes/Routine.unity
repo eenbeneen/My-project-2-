@@ -2171,6 +2171,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5bb65d4fa65947642acad5fc45812dca, type: 2}
   - {fileID: 11400000, guid: 5bb65d4fa65947642acad5fc45812dca, type: 2}
   - {fileID: 11400000, guid: 6383e6e5a7347484fba4483674f43707, type: 2}
+  - {fileID: 11400000, guid: a426c37fdbeac3f45a0906b95d4fd775, type: 2}
+  - {fileID: 11400000, guid: 30dbe6520a66a164fa5f5486a7169c2e, type: 2}
   handGameObject: {fileID: 806132889}
   startingHandSize: 6
 --- !u!1 &892602555
@@ -2332,7 +2334,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1001823474}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1649527218}
+        m_TargetAssemblyTypeName: GameManagerScript, Assembly-CSharp
+        m_MethodName: ReturnToDungeon
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1001823474
 MonoBehaviour:
   m_ObjectHideFlags: 0
