@@ -32,6 +32,11 @@ public class HandUIScript : MonoBehaviour
         
     }
 
+    private void OnDisable()
+    {
+        PlayerDeckManagerScript.Instance.OnJokeDrawn -= PlayerDeckManagerScript_OnJokeDrawn;
+    }
+
     private void PlayerDeckManagerScript_OnJokeDrawn(object sender, PlayerDeckManagerScript.OnJokeDrawnEventArgs e)
     {
         JokeUIScript jokeUI = Instantiate(jokeUITemplate, transform);

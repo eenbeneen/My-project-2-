@@ -41,6 +41,12 @@ public class AudienceScript : MonoBehaviour
         GameManagerScript.Instance.OnPlayerTurnStart += GameManagerScript_OnPlayerTurnStart;
     }
 
+    private void OnDisable()
+    {
+        GameManagerScript.Instance.OnEnemyTurnStart -= GameManagerScript_OnEnemyTurnStart;
+        GameManagerScript.Instance.OnPlayerTurnStart -= GameManagerScript_OnPlayerTurnStart;
+    }
+
     private void GameManagerScript_OnPlayerTurnStart(object sender, EventArgs e)
     {
         ActivateStatusEffectsFromPlayer();

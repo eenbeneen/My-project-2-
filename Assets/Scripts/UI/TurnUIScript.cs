@@ -29,6 +29,12 @@ public class TurnUIScript : MonoBehaviour
 
     }
 
+    private void OnDisable()
+    {
+        GameManagerScript.Instance.OnPlayerTurnStart -= GameManagerScript_OnPlayerTurnStart;
+        GameManagerScript.Instance.OnEnemyTurnStart -= GameManagerScript_OnEnemyTurnStart;
+    }
+
     public void UpdateSecondsText(int seconds, bool isForPlayer)
     {
         if (isForPlayer)

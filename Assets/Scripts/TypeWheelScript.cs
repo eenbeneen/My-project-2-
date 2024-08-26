@@ -43,6 +43,14 @@ public class TypeWheelScript : MonoBehaviour
 
     }
 
+    private void OnDisable()
+    {
+        PlayerDeckManagerScript.Instance.OnJokePlayed -= PlayerDeckManagerScript_OnJokePlayed;
+        EnemyDeckManagerScript.Instance.OnEnemyJokePlayed -= EnemyDeckManagerScript_OnEnemyJokePlayed;
+        JokeUIScript.OnJokeSelected -= JokeUIScript_OnJokeSelected;
+        JokeUIScript.OnJokeUnselected -= JokeUIScript_OnJokeUnselected;
+    }
+
     private void JokeUIScript_OnJokeUnselected(object sender, System.EventArgs e)
     {
         typeWheelIndicatorPreviewImage.gameObject.SetActive(false);

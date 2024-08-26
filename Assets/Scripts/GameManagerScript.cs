@@ -53,6 +53,15 @@ public class GameManagerScript : MonoBehaviour
         AudienceScript.Instance.OnMeterEmpty += AudienceScript_OnMeterEmpty;
     }
 
+    private void OnDisable()
+    {
+        PlayerDeckManagerScript.Instance.OnJokePlayed -= PlayerDeckManagerScript_OnJokePlayed;
+        EnemyDeckManagerScript.Instance.OnEnemyJokePlayed -= EnemyDeckManagerScript_OnEnemyJokePlayed;
+
+        AudienceScript.Instance.OnMeterFull -= AudienceScript_OnMeterFull;
+        AudienceScript.Instance.OnMeterEmpty -= AudienceScript_OnMeterEmpty;
+    }
+
     private void AudienceScript_OnMeterEmpty(object sender, EventArgs e)
     {
         PlayerLoss();

@@ -46,6 +46,11 @@ public class EnemyDeckManagerScript : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        GameManagerScript.Instance.OnMatchStart -= GameManagerScript_OnMatchStart;
+        GameManagerScript.Instance.OnEnemyTurnStart -= GameManagerScript_OnEnemyTurnStart;
+    }
     private void GameManagerScript_OnEnemyTurnStart(object sender, EventArgs e)
     {
         Draw(startingHandSize - hand.Count);

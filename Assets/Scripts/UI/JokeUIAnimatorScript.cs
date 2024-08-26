@@ -26,6 +26,12 @@ public class JokeUIAnimatorScript : MonoBehaviour//, IPointerEnterHandler, IPoin
         JokeUIScript.OnJokeUnselected += JokeUIScript_OnJokeUnselected;
     }
 
+    private void OnDisable()
+    {
+        JokeUIScript.OnJokeSelected -= JokeUIScript_OnJokeSelected;
+        JokeUIScript.OnJokeUnselected -= JokeUIScript_OnJokeUnselected;
+    }
+
     private void JokeUIScript_OnJokeUnselected(object sender, EventArgs e)
     {
         

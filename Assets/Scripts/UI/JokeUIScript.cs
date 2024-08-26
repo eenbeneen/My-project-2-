@@ -70,6 +70,12 @@ public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     }
 
+    private void OnDisable()
+    {
+        GameManagerScript.Instance.OnPlayerTurnStart -= GameManagerScript_OnPlayerTurnStart;
+        GameManagerScript.Instance.OnEnemyTurnStart -= GameManagerScript_OnEnemyTurnStart;
+    }
+
     private void GameManagerScript_OnEnemyTurnStart(object sender, System.EventArgs e)
     {
         SetButtonActive(false);

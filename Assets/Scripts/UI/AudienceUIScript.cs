@@ -25,6 +25,15 @@ public class AudienceUIScript : MonoBehaviour
         AudienceScript.Instance.OnStatusEffectsFromEnemyChanged += AudienceScript_OnStatusEffectsFromEnemyChanged;
     }
 
+    private void OnDisable()
+    {
+        AudienceScript.Instance.OnLaughsChanged -= AudienceScript_OnLaughsChanged;
+        JokeUIScript.OnJokeSelected -= JokeUIScript_OnJokeSelected;
+        JokeUIScript.OnJokeUnselected -= JokeUIScript_OnJokeUnselected;
+        AudienceScript.Instance.OnStatusEffectsFromPlayerChanged -= AudienceScript_OnStatusEffectsFromPlayerChanged;
+        AudienceScript.Instance.OnStatusEffectsFromEnemyChanged -= AudienceScript_OnStatusEffectsFromEnemyChanged;
+    }
+
     private void AudienceScript_OnStatusEffectsFromEnemyChanged(object sender, EventArgs e)
     {
         statusEffectsFromEnemyText.text = GetNewStatusEffectsText(AudienceScript.Instance.statusEffectsFromEnemy);
@@ -35,7 +44,7 @@ public class AudienceUIScript : MonoBehaviour
         statusEffectsFromPlayerText.text = GetNewStatusEffectsText(AudienceScript.Instance.statusEffectsFromPlayer);
     }
 
-    private void JokeUIScript_OnJokeUnselected(object sender, System.EventArgs e)
+    private void JokeUIScript_OnJokeUnselected(object sender, EventArgs e)
     {
         laughsMeterPreview.gameObject.SetActive(false);
     }
