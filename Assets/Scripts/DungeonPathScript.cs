@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class DungeonPathScript : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class DungeonPathScript : MonoBehaviour
         Shop,
     }
 
-    [SerializeField] private List<DungeonEvent> path;
+    [SerializeField] private List<DungeonEvent> possibleEvents;
     private int pathProgress;
 
     private void Awake()
@@ -25,10 +26,7 @@ public class DungeonPathScript : MonoBehaviour
         Instance = this;
     }
 
-    public DungeonEvent GetDungeonEventOfPos(int num)
-    {
-        return path[pathProgress];
-    }
+    
 
     private void StartEvent(DungeonEvent dungeonEvent)
     {
@@ -47,7 +45,7 @@ public class DungeonPathScript : MonoBehaviour
 
     public void StartCurrentEvent()
     {
-        StartEvent(path[pathProgress]);
+        StartEvent(DungeonEvent.Routine);
     }
 
 }

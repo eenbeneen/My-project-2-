@@ -32,10 +32,17 @@ public class PlayerDeckManagerScript : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+
+        
     }
 
     private void Start()
     {
+        if (PlayerScript.Instance != null)
+        {
+            startingDeck = PlayerScript.Instance.GetDeck();
+        }
+
         GameManagerScript.Instance.OnMatchStart += GameManagerScript_OnMatchStart;
         GameManagerScript.Instance.OnPlayerTurnStart += GameManagerScript_OnPlayerTurnStart;
 
