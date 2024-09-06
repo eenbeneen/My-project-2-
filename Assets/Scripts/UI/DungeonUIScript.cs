@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DungeonPathUIScript : MonoBehaviour
+public class DungeonUIScript : MonoBehaviour
 {
     [SerializeField] private Button startButtonTemplate;
 
@@ -13,7 +13,7 @@ public class DungeonPathUIScript : MonoBehaviour
         for (int i = 0; i < rand; i++)
         {
             Button button = Instantiate(startButtonTemplate, transform);
-            button.onClick.AddListener(delegate { DungeonPathScript.Instance.StartCurrentEvent(); });
+            button.onClick.AddListener(delegate { DungeonManagerScript.Instance.StartCurrentEvent(); });
         }
         
 

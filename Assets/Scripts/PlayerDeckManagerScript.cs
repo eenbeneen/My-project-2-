@@ -22,10 +22,11 @@ public class PlayerDeckManagerScript : MonoBehaviour
     }
 
 
-    [SerializeField] private List<JokeSOScript> startingDeck;
+    
     [SerializeField] private GameObject handGameObject;
     [SerializeField] private int startingHandSize;
 
+    private List<JokeSOScript> startingDeck;
     private List<JokeSOScript> hand = new List<JokeSOScript>();
     private List<JokeSOScript> deck = new List<JokeSOScript>();
 

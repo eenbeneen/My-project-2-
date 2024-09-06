@@ -5,12 +5,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class DungeonPathScript : MonoBehaviour
+public class DungeonManagerScript : MonoBehaviour
 {
 
     private const string ROUTINE = "Routine";
 
-    public static DungeonPathScript Instance { get; private set; }
+    public static DungeonManagerScript Instance { get; private set; }
 
     public enum DungeonEvent {
         Routine,
@@ -23,6 +23,7 @@ public class DungeonPathScript : MonoBehaviour
 
     private void Awake()
     {
+        DontDestroyOnLoad(this);
         Instance = this;
     }
 

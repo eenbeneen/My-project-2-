@@ -8,7 +8,8 @@ using UnityEngine.UI;
 
 public class GameManagerScript : MonoBehaviour
 {
-    private const string DUNGEON = "Dungeon";
+    private const string DUNGEON_SCENE = "Dungeon";
+    private const string MAINMENU_SCENE = "MainMenu";
 
     public static GameManagerScript Instance { get; private set; }
 
@@ -183,7 +184,12 @@ public class GameManagerScript : MonoBehaviour
 
     public void ReturnToDungeon()
     {
-        SceneManager.LoadScene(DUNGEON);
+        SceneManager.LoadScene(DUNGEON_SCENE);
+    }
+
+    public void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene(MAINMENU_SCENE);
     }
 
 }
