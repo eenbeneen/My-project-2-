@@ -23,6 +23,12 @@ public class DungeonManagerScript : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null)
+        {
+            Destroy(this);
+            return;
+        }
+
         DontDestroyOnLoad(this);
         Instance = this;
     }

@@ -65,15 +65,23 @@ public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         buttonComponent.onClick.AddListener(delegate { PlayerDeckManagerScript.Instance.StartPlayingJoke(jokeSO);  PlayJokeUI(); });
 
-        GameManagerScript.Instance.OnPlayerTurnStart += GameManagerScript_OnPlayerTurnStart;
-        GameManagerScript.Instance.OnEnemyTurnStart += GameManagerScript_OnEnemyTurnStart;
+        if(GameManagerScript.Instance != null)
+        {
+            GameManagerScript.Instance.OnPlayerTurnStart += GameManagerScript_OnPlayerTurnStart;
+            GameManagerScript.Instance.OnEnemyTurnStart += GameManagerScript_OnEnemyTurnStart;
+        }
+        
 
     }
 
     private void OnDisable()
     {
-        GameManagerScript.Instance.OnPlayerTurnStart -= GameManagerScript_OnPlayerTurnStart;
-        GameManagerScript.Instance.OnEnemyTurnStart -= GameManagerScript_OnEnemyTurnStart;
+        if (GameManagerScript.Instance != null)
+        {
+            GameManagerScript.Instance.OnPlayerTurnStart -= GameManagerScript_OnPlayerTurnStart;
+            GameManagerScript.Instance.OnEnemyTurnStart -= GameManagerScript_OnEnemyTurnStart;
+        }
+        
     }
 
     private void GameManagerScript_OnEnemyTurnStart(object sender, System.EventArgs e)
@@ -93,7 +101,7 @@ public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
         if (isButtonActive)
         {
-            if (jokeSO != null)
+            if (jokeSO != null && GameManagerScript.Instance != null)
             {
                 SetButtonActive(GameManagerScript.Instance.IsJokePlayable(jokeSO));
             }
@@ -108,7 +116,7 @@ public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     }
 
 
-    public void SetJokeSO(JokeSOScript jokeSO, bool sentByPlayer)
+    public void SetJokeSO(JokeSOScript jokeSO)
     {
         this.jokeSO = jokeSO;
         
@@ -149,7 +157,6 @@ public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     }
 
 
-    
 
 
     public void PlayJokeUI()
@@ -203,7 +210,9 @@ public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void OnPointerEnter(PointerEventData pointerEventData)
     {
+
         transform.SetAsLastSibling();
+        
         if (isButtonActive)
         {
             isSelected = true;

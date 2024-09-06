@@ -7,13 +7,29 @@ public class PlayerScript : MonoBehaviour
 
     public static PlayerScript Instance { get; private set; }
 
+    public struct PlayerProgress
+    {
+        public List<JokeSOScript> deck;
+
+    }
+    
+    public PlayerProgress playerProgress = new PlayerProgress();
+
     [SerializeField] private List<JokeSOScript> deck;
 
     public void Awake()
     {
-        DontDestroyOnLoad(this);
+        if (Instance != null)
+        {
+            Destroy(this);
+            return;
+        }
 
+        DontDestroyOnLoad(this);
         Instance = this;
+
+        playerProgress.deck = deck;
+        
     }
 
     public void AddJokeToDeck(JokeSOScript jokeSO)

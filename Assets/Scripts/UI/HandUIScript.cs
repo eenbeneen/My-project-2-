@@ -40,10 +40,10 @@ public class HandUIScript : MonoBehaviour
     private void PlayerDeckManagerScript_OnJokeDrawn(object sender, PlayerDeckManagerScript.OnJokeDrawnEventArgs e)
     {
         JokeUIScript jokeUI = Instantiate(jokeUITemplate, transform);
-        jokeUI.SetJokeSO(e.jokeSO, true);
+        jokeUI.SetJokeSO(e.jokeSO);
         jokeUI.transform.position = deckTransform.position;
-        jokeUI.gameObject.SetActive(true);
         jokeUI.UpdateVisual();
+        jokeUI.gameObject.SetActive(true);
         jokeUIList.Add(jokeUI);
 
         UpdateVisual();

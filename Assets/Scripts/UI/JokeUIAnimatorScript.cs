@@ -11,6 +11,7 @@ public class JokeUIAnimatorScript : MonoBehaviour//, IPointerEnterHandler, IPoin
     [SerializeField] private GameObject jokeAnimated;
 
     private JokeUIScript jokeUIScript;
+    private Vector2 originalSize;
     
     private bool jokeBeingPlayed = false;
     private bool enableActiveAnimations = true; //Active animations are animations that make the object feel active and interactable
@@ -18,10 +19,12 @@ public class JokeUIAnimatorScript : MonoBehaviour//, IPointerEnterHandler, IPoin
     private void Awake()
     {
         jokeUIScript = jokeAnimated.GetComponent<JokeUIScript>();
+
     }
 
     private void Start()
     {
+        originalSize = jokeUIScript.transform.localScale;
         JokeUIScript.OnJokeSelected += JokeUIScript_OnJokeSelected;
         JokeUIScript.OnJokeUnselected += JokeUIScript_OnJokeUnselected;
     }
@@ -37,7 +40,7 @@ public class JokeUIAnimatorScript : MonoBehaviour//, IPointerEnterHandler, IPoin
         
         if (sender as JokeUIScript == jokeUIScript && !jokeBeingPlayed && enableActiveAnimations)
         {
-            LeanTween.scale(jokeAnimated, new Vector3(1f, 1f, 1f), 0.2f).setEaseOutQuad();
+            LeanTween.scale(jokeAnimated, originalSize, 0.2f).setEaseOutQuad();
         }
     }
 
@@ -46,7 +49,7 @@ public class JokeUIAnimatorScript : MonoBehaviour//, IPointerEnterHandler, IPoin
     {
         if (sender as JokeUIScript == jokeUIScript && !jokeBeingPlayed && enableActiveAnimations)
         {
-            LeanTween.scale(jokeAnimated, new Vector3(1.5f, 1.5f, 1.5f), 0.2f).setEase(LeanTweenType.easeOutQuad);
+            LeanTween.scale(jokeAnimated, originalSize*1.5f, 0.2f).setEase(LeanTweenType.easeOutQuad);
         }
     }
 
