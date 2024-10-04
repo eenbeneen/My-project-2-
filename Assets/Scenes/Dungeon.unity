@@ -457,21 +457,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 475624327}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Script: {fileID: 11500000, guid: ed2aaab7b94cb25409f40aa00d487851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
-  m_ChildAlignment: 0
-  m_StartCorner: 0
-  m_StartAxis: 0
-  m_CellSize: {x: 376, y: 90.8}
-  m_Spacing: {x: 325.65, y: 129.2}
-  m_Constraint: 0
-  m_ConstraintCount: 2
+  maxColumnCount: 3
+  startingPos: {x: -750, y: 500}
+  xOffset: 750
+  yOffset: 200
 --- !u!1 &665351125
 GameObject:
   m_ObjectHideFlags: 0

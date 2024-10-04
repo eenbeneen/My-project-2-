@@ -10,7 +10,7 @@ public class ViewDeckUIScript : MonoBehaviour
 
     public void Start()
     {
-        GetComponentInChildren<GridLayoutGroup>().enabled = true;
+        GetComponentInChildren<DeckLayoutScript>().enabled = true;
 
         foreach (JokeSOScript jokeSO in PlayerScript.Instance.playerProgress.deck)
         {
@@ -31,7 +31,7 @@ public class ViewDeckUIScript : MonoBehaviour
     {
         
         gameObject.SetActive(true);
-        GetComponentInChildren<GridLayoutGroup>().enabled = false;
+        GetComponentInChildren<DeckLayoutScript>().enabled = false;
     }
 
     
