@@ -13,7 +13,7 @@ public class TypeWheelScript : MonoBehaviour
     private const int NUMTYPES = 4;
 
     [SerializeField] private int[] currentMoodValueArray = new int[NUMTYPES];
-    [SerializeField] private JokeSOScript.JokeType[] jokeTypeArray = new JokeSOScript.JokeType[NUMTYPES];
+    [SerializeField] private JokeSOScript.JokeType[] jokeTypeArray = new JokeSOScript.JokeType[NUMTYPES + 1];
     [SerializeField] private Vector2[] jokeTypePositionsOnCircleArray = new Vector2[NUMTYPES];
     [SerializeField] private Image typeWheelImage;
     [SerializeField] private Image typeWheelIndicatorImage;
@@ -27,6 +27,8 @@ public class TypeWheelScript : MonoBehaviour
 
     private void Start()
     {
+
+
         PlayerDeckManagerScript.Instance.OnJokePlayed += PlayerDeckManagerScript_OnJokePlayed;
         EnemyDeckManagerScript.Instance.OnEnemyJokePlayed += EnemyDeckManagerScript_OnEnemyJokePlayed;
         JokeUIScript.OnJokeSelected += JokeUIScript_OnJokeSelected;
@@ -144,10 +146,10 @@ public class TypeWheelScript : MonoBehaviour
         int jokeTypeIndex = ArrayUtility.IndexOf(jokeTypeArray, jokeType);
 
 
-        if (mainJokeTypeIndex == -1)
+        if (mainJokeTypeIndex == -1 || jokeTypeIndex == 5)
         {
             
-            return 1;
+            return 1f;
             
         }
 
@@ -159,9 +161,9 @@ public class TypeWheelScript : MonoBehaviour
         {
             case 0:
                 return 2f;
+            default:
             case 1:
                 return 1f;
-            default:
             case 2:
                 return 0f;
 

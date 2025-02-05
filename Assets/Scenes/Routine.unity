@@ -4186,7 +4186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentMoodValueArray: 00000000000000000000000000000000
-  jokeTypeArray: 01000000020000000300000004000000
+  jokeTypeArray: 0100000002000000030000000400000000000000
   jokeTypePositionsOnCircleArray:
   - {x: 0, y: 0}
   - {x: 0, y: 0}
