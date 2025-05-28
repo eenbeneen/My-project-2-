@@ -47,6 +47,7 @@ public class JokeUIAnimatorScript : MonoBehaviour//, IPointerEnterHandler, IPoin
 
     private void JokeUIScript_OnJokeSelected(object sender, JokeUIScript.OnJokeSelectedEventArgs e)
     {
+        Debug.Log("SELECTED");
         if (sender as JokeUIScript == jokeUIScript && !jokeBeingPlayed && enableActiveAnimations)
         {
             LeanTween.scale(jokeAnimated, originalSize*1.5f, 0.2f).setEase(LeanTweenType.easeOutQuad);

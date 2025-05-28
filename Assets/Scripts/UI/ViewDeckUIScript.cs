@@ -10,7 +10,14 @@ public class ViewDeckUIScript : MonoBehaviour
 
     public void Start()
     {
-        GetComponentInChildren<DeckLayoutScript>().enabled = true;
+        
+        
+
+    }
+
+
+    public void Show()
+    {
 
         foreach (JokeSOScript jokeSO in PlayerScript.Instance.playerProgress.deck)
         {
@@ -22,19 +29,23 @@ public class ViewDeckUIScript : MonoBehaviour
 
 
         }
-        
+        GetComponentInChildren<DeckLayoutScript>().UpdateViewDeckLayout();
 
-    }
-
-
-    public void Show()
-    {
-        
         gameObject.SetActive(true);
-        GetComponentInChildren<DeckLayoutScript>().enabled = false;
     }
 
-    
+    public void Hide()
+    {
+        gameObject.SetActive(false);
+        foreach (Transform child in layoutTransform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        
+    }
+
+
 
 
 }

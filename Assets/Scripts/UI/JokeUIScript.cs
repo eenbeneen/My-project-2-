@@ -11,7 +11,11 @@ using UnityEngine.UI;
 
 public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-
+    private enum ActionOnClick
+    {
+        Play,
+        View,
+    }
 
     public static event EventHandler<OnJokeSelectedEventArgs> OnJokeSelected;
     public static event EventHandler OnJokeUnselected;
@@ -30,11 +34,13 @@ public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     [SerializeField] private Image deselectedImage;
     [SerializeField] private Image background;
     [SerializeField] private List<Color> typeColorList;
-    
+    [SerializeField] private ActionOnClick actionOnClick;
+
+   
 
     private JokeSOScript jokeSO;
     private bool jokeBeingPlayed;
-    
+
     private bool isButtonActive = true;
 
     private bool isSelected;
@@ -63,9 +69,19 @@ public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     private void Start()
     {
-        buttonComponent.onClick.AddListener(delegate { PlayerDeckManagerScript.Instance.StartPlayingJoke(jokeSO);  PlayJokeUI(); });
+        //buttonComponent.onClick.AddListener(delegate { PlayerDeckManagerScript.Instance.StartPlayingJoke(jokeSO);  PlayJokeUI(); });
+        switch (actionOnClick)
+        {
+            case ActionOnClick.Play:
+                buttonComponent.onClick.AddListener(delegate { PlayerDeckManagerScript.Instance.StartPlayingJoke(jokeSO); PlayJokeUI(); });
+                break;
+            default:
+            case ActionOnClick.View:
+                buttonComponent.onClick.AddListener(delegate { JokeViewerScript.Instance.ViewJoke(jokeSO);  });
+                break;
+        }
 
-        if(GameManagerScript.Instance != null)
+        if (GameManagerScript.Instance != null)
         {
             GameManagerScript.Instance.OnPlayerTurnStart += GameManagerScript_OnPlayerTurnStart;
             GameManagerScript.Instance.OnEnemyTurnStart += GameManagerScript_OnEnemyTurnStart;
@@ -120,8 +136,8 @@ public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         this.jokeSO = jokeSO;
         
-        
     }
+
 
     public void UpdateVisual()
     {
@@ -175,7 +191,7 @@ public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     }
 
 
-    public void SetButtonActive(bool value)
+    public void SetButtonActive(bool value, bool showDeselectedImage = true)
     {
         isButtonActive = value;
 
@@ -189,7 +205,7 @@ public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
         if (deselectedImage != null)
         {
-            if (!jokeBeingPlayed)
+            if (!jokeBeingPlayed && showDeselectedImage)
             {
 
                 deselectedImage.gameObject.SetActive(!value);
