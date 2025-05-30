@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -12,6 +13,8 @@ public class DungeonManagerScript : MonoBehaviour
 
     public static DungeonManagerScript Instance { get; private set; }
 
+    public event EventHandler OnEnterShop;
+
     public enum DungeonEvent {
         Routine,
         FreeReward,
@@ -20,6 +23,7 @@ public class DungeonManagerScript : MonoBehaviour
 
     [SerializeField] private List<DungeonEvent> possibleEvents;
     private int pathProgress;
+
 
     private void Awake()
     {
@@ -45,6 +49,7 @@ public class DungeonManagerScript : MonoBehaviour
             case DungeonEvent.FreeReward:
                 break;
             case DungeonEvent.Shop:
+                StartShop();
                 break;
         }
         pathProgress++;
@@ -53,6 +58,11 @@ public class DungeonManagerScript : MonoBehaviour
     public void StartCurrentEvent()
     {
         StartEvent(DungeonEvent.Routine);
+    }
+
+    public void StartShop()
+    {
+        OnEnterShop?.Invoke(this, EventArgs.Empty);
     }
 
 }

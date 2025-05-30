@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeckLayoutScript : MonoBehaviour
+public class LayoutScript : MonoBehaviour
 {
     [SerializeField] private int maxColumnCount;
     [SerializeField] private Vector2 startingPos;
@@ -12,10 +12,10 @@ public class DeckLayoutScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        UpdateViewDeckLayout();
+        UpdateLayout();
     }
 
-    public void UpdateViewDeckLayout()
+    public void UpdateLayout()
     {
         int columnNum = 0;
         int rowNum = 0;

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class JokeViewerScript : MonoBehaviour
+public class JokeViewerUIScript : MonoBehaviour
 {
-    public static JokeViewerScript Instance { get; private set; }
+    public static JokeViewerUIScript Instance { get; private set; }
     [SerializeField] private JokeUIScript jokeUITemplate;
     [SerializeField] private GameObject background;
 

@@ -15,6 +15,7 @@ public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         Play,
         View,
+        Buy,
     }
 
     public static event EventHandler<OnJokeSelectedEventArgs> OnJokeSelected;
@@ -77,7 +78,7 @@ public class JokeUIScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
                 break;
             default:
             case ActionOnClick.View:
-                buttonComponent.onClick.AddListener(delegate { JokeViewerScript.Instance.ViewJoke(jokeSO);  });
+                buttonComponent.onClick.AddListener(delegate { JokeViewerUIScript.Instance.ViewJoke(jokeSO);  });
                 break;
         }
 

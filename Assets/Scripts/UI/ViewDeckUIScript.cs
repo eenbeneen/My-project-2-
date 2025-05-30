@@ -8,13 +8,6 @@ public class ViewDeckUIScript : MonoBehaviour
     [SerializeField] private Transform layoutTransform;
     [SerializeField] private JokeUIScript jokeUITemplate;
 
-    public void Start()
-    {
-        
-        
-
-    }
-
 
     public void Show()
     {
@@ -26,10 +19,8 @@ public class ViewDeckUIScript : MonoBehaviour
             jokeUI.SetJokeSO(jokeSO);
             jokeUI.gameObject.SetActive(true);
             jokeUI.UpdateVisual();
-
-
         }
-        GetComponentInChildren<DeckLayoutScript>().UpdateViewDeckLayout();
+        GetComponentInChildren<LayoutScript>().UpdateLayout();
 
         gameObject.SetActive(true);
     }
@@ -41,11 +32,5 @@ public class ViewDeckUIScript : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
-
-        
     }
-
-
-
-
 }
