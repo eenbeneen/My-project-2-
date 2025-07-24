@@ -7,7 +7,7 @@ public class Stereotype : JokeSOScript
 {
     public override string GetDescription()
     {
-        return "+" + laughs * TypeWheelScript.Instance.GetMultiplierForType(type) + " Laughs";
+        return "+" + laughs * TypeWheelScript.Instance?.GetMultiplierForType(type) ?? 1 + " Laughs";
     }
 
 }

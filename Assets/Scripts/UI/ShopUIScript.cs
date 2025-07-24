@@ -11,11 +11,13 @@ public class ShopUIScript : MonoBehaviour
 
     public void RefreshShopUI(int stock, List<JokeSOScript> jokesForSale)
     {
-        foreach (Transform child in layout.transform)
+        if (layout.transform.childCount > 0)
         {
-            Destroy(child);
+            foreach (Transform child in layout.transform)
+            {
+                Destroy(child.gameObject);
+            }
         }
-
         for (int i = 0; i < stock; i++)
         {
             JokeUIScript jokeUI = Instantiate(jokeUITemplate, layout.transform);
