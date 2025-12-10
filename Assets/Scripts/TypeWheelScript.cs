@@ -47,6 +47,7 @@ public class TypeWheelScript : MonoBehaviour
 
     private void OnDisable()
     {
+        Instance = null;
         PlayerDeckManagerScript.Instance.OnJokePlayed -= PlayerDeckManagerScript_OnJokePlayed;
         EnemyDeckManagerScript.Instance.OnEnemyJokePlayed -= EnemyDeckManagerScript_OnEnemyJokePlayed;
         JokeUIScript.OnJokeSelected -= JokeUIScript_OnJokeSelected;

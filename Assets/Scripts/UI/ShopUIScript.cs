@@ -7,26 +7,35 @@ public class ShopUIScript : MonoBehaviour
 {
     [SerializeField] private GameObject buyButtonTemplate;
     [SerializeField] private JokeUIScript jokeUITemplate;
-    [SerializeField] private GameObject layout;
+    [SerializeField] private LayoutScript layout;
 
-    public void RefreshShopUI(int stock, List<JokeSOScript> jokesForSale)
+
+    public void RefreshShopUI(List<JokeSOScript> jokesForSale)
     {
-        if (layout.transform.childCount > 0)
+        
+        foreach (JokeSOScript joke in jokesForSale)
+        {
+            JokeUIScript jokeUI = Instantiate(jokeUITemplate, layout.transform);
+            jokeUI.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+            jokeUI.SetJokeSO(joke);
+            jokeUI.UpdateVisual();
+            jokeUI.gameObject.SetActive(true);
+        }
+
+        layout.UpdateLayout();
+    }
+
+    public void ExitShopUI()
+    {
+        if (transform.childCount > 0)
         {
             foreach (Transform child in layout.transform)
             {
                 Destroy(child.gameObject);
             }
         }
-        for (int i = 0; i < stock; i++)
-        {
-            JokeUIScript jokeUI = Instantiate(jokeUITemplate, layout.transform);
-            jokeUI.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
-            jokeUI.SetJokeSO(jokesForSale[i]);
-            jokeUI.gameObject.SetActive(true);
-            jokeUI.UpdateVisual();
-        }
-
-        layout.GetComponent<LayoutScript>().UpdateLayout();
     }
+
+
+
 }

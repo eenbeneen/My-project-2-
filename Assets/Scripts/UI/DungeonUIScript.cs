@@ -7,10 +7,17 @@ public class DungeonUIScript : MonoBehaviour
 {
     [SerializeField] private Button startButtonTemplate;
     [SerializeField] private Button shopButtonTemplate;
-    
+
+
+    private void DungeonManagerScript_OnEnterShop(object sender, System.EventArgs e)
+    {
+        gameObject.SetActive(false);
+    }
+
 
     private void Start()
     {
+        DungeonManagerScript.Instance.OnEnterShop += DungeonManagerScript_OnEnterShop;
         int rand = Random.Range(1, 4);
         for (int i = 0; i < rand; i++)
         {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LayoutScript : MonoBehaviour
 {
@@ -9,14 +10,9 @@ public class LayoutScript : MonoBehaviour
     [SerializeField] private int xOffset;
     [SerializeField] private int yOffset;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        UpdateLayout();
-    }
-
     public void UpdateLayout()
     {
+        Debug.Log(startingPos.y + " " + yOffset);
         int columnNum = 0;
         int rowNum = 0;
 

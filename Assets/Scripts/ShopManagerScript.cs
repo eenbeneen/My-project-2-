@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ShopManagerScript : MonoBehaviour
 {
+
 
     [SerializeField] private JokeSOScript[] jokePool;
     [SerializeField] private ShopUIScript shopUI;
@@ -29,16 +31,12 @@ public class ShopManagerScript : MonoBehaviour
         {
             jokesForSale.Insert(i, jokePool[Random.Range(0, jokePool.Length)]);
         }
-        shopUI.RefreshShopUI(stock, jokesForSale);
+        shopUI.RefreshShopUI(jokesForSale);
     }
 
-    public void SetStock(int newStock)
+    private void OnDestroy()
     {
-        stock = newStock;
+        DungeonManagerScript.Instance.OnEnterShop -= DungeonManagerScript_OnEnterShop;
     }
 
-    public int GetStock()
-    {
-        return stock;
-    }
 }
