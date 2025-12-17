@@ -34,9 +34,15 @@ public class ShopManagerScript : MonoBehaviour
         shopUI.RefreshShopUI(jokesForSale);
     }
 
+    public void BuyJoke(JokeSOScript joke)
+    {
+        PlayerScript.Instance.AddJokeToDeck(joke);
+    }
+
     private void OnDestroy()
     {
         DungeonManagerScript.Instance.OnEnterShop -= DungeonManagerScript_OnEnterShop;
     }
+
 
 }

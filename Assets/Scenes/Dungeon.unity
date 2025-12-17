@@ -448,6 +448,58 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6972884251735808187, guid: 30651af590646ef47b5caed342ef305f, type: 3}
   m_PrefabInstance: {fileID: 1425428453466516854}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &537863400
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 537863401}
+  - component: {fileID: 537863402}
+  m_Layer: 5
+  m_Name: BuyButtons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &537863401
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537863400}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1867132584}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -150}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &537863402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537863400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed2aaab7b94cb25409f40aa00d487851, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxColumnCount: 3
+  startingPos: {x: -750, y: 0}
+  xOffset: 750
+  yOffset: 250
 --- !u!1 &665351125
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,6 +619,58 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jokeUITemplate: {fileID: 241645402700696524, guid: 9086cc97b77ce1c42ba7ec3e0ea0cf9a, type: 3}
   background: {fileID: 923811861}
+--- !u!1 &881604094
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 881604096}
+  - component: {fileID: 881604095}
+  m_Layer: 5
+  m_Name: ForSale
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &881604095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881604094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed2aaab7b94cb25409f40aa00d487851, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxColumnCount: 3
+  startingPos: {x: -750, y: 0}
+  xOffset: 750
+  yOffset: 250
+--- !u!224 &881604096
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881604094}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1867132584}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &923811861
 GameObject:
   m_ObjectHideFlags: 0
@@ -1568,7 +1672,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1867132584}
   - component: {fileID: 1867132585}
-  - component: {fileID: 1867132586}
   m_Layer: 5
   m_Name: ShopUI
   m_TagString: Untagged
@@ -1587,7 +1690,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 881604096}
+  - {fileID: 537863401}
   m_Father: {fileID: 947589567}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1607,25 +1712,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86f241b3c11354248898de93e2f97900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buyButtonTemplate: {fileID: 6079787872097304771, guid: 558c41a7b2c909b4e8a26f40894600c4, type: 3}
+  buyButtonTemplate: {fileID: 8454132848637322359, guid: 558c41a7b2c909b4e8a26f40894600c4, type: 3}
   jokeUITemplate: {fileID: 241645402700696524, guid: 9086cc97b77ce1c42ba7ec3e0ea0cf9a, type: 3}
-  layout: {fileID: 1867132586}
---- !u!114 &1867132586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1867132583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed2aaab7b94cb25409f40aa00d487851, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxColumnCount: 1
-  startingPos: {x: -750, y: 0}
-  xOffset: 750
-  yOffset: 0
+  forSaleLayout: {fileID: 881604095}
+  buyButtonLayout: {fileID: 537863402}
+  shopManager: {fileID: 2134950834}
 --- !u!1 &2134950832
 GameObject:
   m_ObjectHideFlags: 0
