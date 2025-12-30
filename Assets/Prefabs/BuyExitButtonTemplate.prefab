@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6539934460495885716}
   - component: {fileID: 8454132848637322359}
   m_Layer: 5
-  m_Name: BuyButtonTemplate
+  m_Name: BuyExitButtonTemplate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

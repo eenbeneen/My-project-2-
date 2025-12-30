@@ -8,18 +8,13 @@ public class ShopManagerScript : MonoBehaviour
 
 
     [SerializeField] private JokeSOScript[] jokePool;
-    [SerializeField] private ShopUIScript shopUI;
+    [SerializeField] private DungeonUIScript dungeonUI;
 
     public List<JokeSOScript> jokesForSale;
 
     [SerializeField] private int stock;
 
-    void Start()
-    {
-        DungeonManagerScript.Instance.OnEnterShop += DungeonManagerScript_OnEnterShop;
-    }
-
-    private void DungeonManagerScript_OnEnterShop(object sender, System.EventArgs e)
+    private void Start()
     {
         RefreshShop();
     }
@@ -31,17 +26,12 @@ public class ShopManagerScript : MonoBehaviour
         {
             jokesForSale.Insert(i, jokePool[Random.Range(0, jokePool.Length)]);
         }
-        shopUI.RefreshShopUI(jokesForSale);
+        dungeonUI.InitShopUI(jokesForSale);
     }
 
     public void BuyJoke(JokeSOScript joke)
     {
         PlayerScript.Instance.AddJokeToDeck(joke);
-    }
-
-    private void OnDestroy()
-    {
-        DungeonManagerScript.Instance.OnEnterShop -= DungeonManagerScript_OnEnterShop;
     }
 
 

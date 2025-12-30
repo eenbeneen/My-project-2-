@@ -13,8 +13,6 @@ public class DungeonManagerScript : MonoBehaviour
 
     public static DungeonManagerScript Instance { get; private set; }
 
-    public event EventHandler OnEnterShop;
-
     public enum DungeonEvent {
         Routine,
         FreeReward,
@@ -49,7 +47,6 @@ public class DungeonManagerScript : MonoBehaviour
             case DungeonEvent.FreeReward:
                 break;
             case DungeonEvent.Shop:
-                StartShop();
                 break;
         }
         pathProgress++;
@@ -59,10 +56,4 @@ public class DungeonManagerScript : MonoBehaviour
     {
         StartEvent(DungeonEvent.Routine);
     }
-
-    public void StartShop()
-    {
-        OnEnterShop?.Invoke(this, EventArgs.Empty);
-    }
-
 }
